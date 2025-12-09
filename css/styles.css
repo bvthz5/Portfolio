@@ -345,8 +345,9 @@ section {
 
 .work-timeline {
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 2rem;
 }
 
 .work-timeline::before {
@@ -362,10 +363,10 @@ section {
 }
 
 .timeline-item {
-    margin-bottom: 4rem;
+    margin-bottom: 4.5rem;
     position: relative;
     width: 50%;
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .timeline-item:nth-child(odd) {
@@ -413,7 +414,21 @@ section {
 .timeline-content h4 {
     font-size: 1.2rem;
     color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.work-location {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.work-location i {
+    color: var(--secondary);
+    font-size: 0.9rem;
 }
 
 .timeline-content ul {
@@ -432,19 +447,28 @@ section {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0 1rem;
 }
 
 .skill-card {
     background: rgba(108, 99, 255, 0.1);
-    border-radius: 15px;
-    padding: 2rem;
-    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(108, 99, 255, 0.2);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 280px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
 }
 
 .skill-card:hover {
@@ -493,46 +517,54 @@ section {
 
 .education-timeline {
     position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
 }
 
 .education-item {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     position: relative;
-    padding-left: 3rem;
+    padding: 2.5rem 2.5rem 2.5rem 4.5rem;
+    background: rgba(45, 43, 85, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(108, 99, 255, 0.2);\n    backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.education-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
+    border-color: var(--primary);
+    background: rgba(45, 43, 85, 0.8);
 }
 
 .education-item::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 1.5rem;
+    top: 2.5rem;
     width: 20px;
     height: 20px;
     background: var(--gradient);
     border-radius: 50%;
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.6);
+    z-index: 1;
 }
 
 .education-item::after {
     content: '';
     position: absolute;
-    left: 9px;
-    top: 20px;
-    bottom: -3rem;
+    left: 2.4rem;
+    top: 3.5rem;
+    bottom: -1rem;
     width: 2px;
-    background: var(--primary);
+    background: linear-gradient(180deg, var(--primary) 0%, transparent 100%);
 }
 
 .education-item:last-child::after {
     display: none;
-}
-
-.education-content {
-    background: rgba(45, 43, 85, 0.8);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .education-content h3 {
@@ -563,23 +595,36 @@ section {
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0 1rem;
 }
 
 .project-card {
     background: rgba(108, 99, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(108, 99, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.3);
-    border-color: var(--primary);
+    transform: translateY(-20px) rotateY(5deg) rotateX(5deg);
+    box-shadow: 0 30px 60px rgba(108, 99, 255, 0.5),
+                0 0 60px rgba(255, 101, 132, 0.3),
+                inset 0 0 40px rgba(108, 99, 255, 0.1);
+    border-color: var(--secondary);
 }
 
 .project-img {
@@ -594,6 +639,10 @@ section {
 
 .project-content {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .project-content h3 {
@@ -630,23 +679,66 @@ section {
 
 .certs-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 3rem;
+    align-items: start;
 }
 
 .cert-card {
-    background: rgba(45, 43, 85, 0.8);
-    border-radius: 15px;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(108, 99, 255, 0.2);
+    background: rgba(45, 43, 85, 0.9);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.cert-card:nth-child(odd) {
+    align-self: stretch;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.cert-card:nth-child(even) {
+    align-self: stretch;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
 .cert-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.2);
-    border-color: var(--primary);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(108, 99, 255, 0.5),
+                0 0 40px rgba(255, 101, 132, 0.3);
+    border-color: var(--secondary);
+}
+
+.cert-card:hover::before {
+    opacity: 0.1;
 }
 
 .cert-card h3 {
@@ -656,20 +748,24 @@ section {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-align: left;
 }
 
 .cert-card h3 i {
     color: var(--primary);
+    flex-shrink: 0;
 }
 
 .cert-list {
     list-style: none;
+    text-align: left;
 }
 
 .cert-list li {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
 }
 
 .cert-list li:last-child {
@@ -914,6 +1010,17 @@ footer span {
     
     .projects-container, .certs-container {
         grid-template-columns: 1fr;
+    }
+    
+    .cert-card {
+        width: 100% !important;
+        margin: 0 !important;
+        align-self: stretch !important;
+        max-width: none;
+    }
+    
+    .certs-container {
+        padding: 0 1rem;
     }
 }
 

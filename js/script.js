@@ -307,26 +307,24 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollTrigger: {
             trigger: '#about',
             start: 'top 80%',
-            end: 'bottom 20%',
             toggleActions: 'play none none reverse'
         },
-        duration: 1.2,
+        duration: 1,
         x: -100,
         opacity: 0,
-        ease: "power3.out"
+        ease: "power2.out"
     });
     
     gsap.from('.about-content', {
         scrollTrigger: {
             trigger: '#about',
             start: 'top 80%',
-            end: 'bottom 20%',
             toggleActions: 'play none none reverse'
         },
-        duration: 1.2,
+        duration: 1,
         x: 100,
         opacity: 0,
-        ease: "power3.out"
+        ease: "power2.out"
     });
     
     // Work timeline animations
@@ -335,13 +333,12 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTrigger: {
                 trigger: item,
                 start: 'top 85%',
-                end: 'bottom 15%',
                 toggleActions: 'play none none reverse'
             },
-            duration: 1,
+            duration: 0.8,
             y: 50,
             opacity: 0,
-            ease: "power3.out"
+            ease: "power2.out"
         });
     });
     
@@ -351,14 +348,13 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                end: 'bottom 15%',
                 toggleActions: 'play none none reverse'
             },
-            duration: 0.8,
+            duration: 0.7,
             y: 30,
             opacity: 0,
-            delay: i * 0.1,
-            ease: "power3.out"
+            delay: i * 0.08,
+            ease: "power2.out"
         });
     });
     
@@ -368,14 +364,13 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTrigger: {
                 trigger: item,
                 start: 'top 85%',
-                end: 'bottom 15%',
                 toggleActions: 'play none none reverse'
             },
-            duration: 1,
+            duration: 0.8,
             x: -50,
             opacity: 0,
-            delay: i * 0.1,
-            ease: "power3.out"
+            delay: i * 0.08,
+            ease: "power2.out"
         });
     });
     
@@ -385,31 +380,28 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                end: 'bottom 15%',
                 toggleActions: 'play none none reverse'
             },
-            duration: 0.8,
+            duration: 0.7,
             y: 50,
             opacity: 0,
-            delay: i * 0.1,
-            ease: "back.out(1.2)"
+            delay: i * 0.08,
+            ease: "power2.out"
         });
     });
     
-    // Certification cards animations
+    // Certification cards animations with alternating left/right
     gsap.utils.toArray('.cert-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                end: 'bottom 15%',
                 toggleActions: 'play none none reverse'
             },
             duration: 0.8,
-            scale: 0.8,
+            y: 60,
             opacity: 0,
-            delay: i * 0.2,
-            ease: "power3.out"
+            ease: "power2.out"
         });
     });
     
@@ -418,26 +410,24 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollTrigger: {
             trigger: '#contact',
             start: 'top 80%',
-            end: 'bottom 20%',
             toggleActions: 'play none none reverse'
         },
-        duration: 1,
+        duration: 0.8,
         x: -50,
         opacity: 0,
-        ease: "power3.out"
+        ease: "power2.out"
     });
     
     gsap.from('.contact-form', {
         scrollTrigger: {
             trigger: '#contact',
             start: 'top 80%',
-            end: 'bottom 20%',
             toggleActions: 'play none none reverse'
         },
-        duration: 1,
+        duration: 0.8,
         x: 50,
         opacity: 0,
-        ease: "power3.out"
+        ease: "power2.out"
     });
     
     // Section title animations
@@ -446,13 +436,12 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTrigger: {
                 trigger: title,
                 start: 'top 90%',
-                end: 'bottom 10%',
                 toggleActions: 'play none none reverse'
             },
-            duration: 1,
-            y: 50,
+            duration: 0.8,
+            y: 40,
             opacity: 0,
-            ease: "power3.out"
+            ease: "power2.out"
         });
     });
     
