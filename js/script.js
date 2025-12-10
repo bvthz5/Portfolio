@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+    
+    // Create animated background elements
+    createStars();
+    createBubbles();
+
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
@@ -24,7 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const headerOffset = 80;
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
@@ -37,7 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const targetSection = document.querySelector(href);
                 if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerOffset = 80;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             }
         });
@@ -70,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const ctx = canvas ? canvas.getContext('2d', { willReadFrequently: true }) : null;
     let currentSlide = 0;
-    const slideInterval = 4000; // 4 seconds per image
+    const slideInterval = 7000; // 7 seconds per image
     const particleCount = 2000; // Reduced for better performance
     
     function initCanvas() {
@@ -222,16 +243,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollDots = document.querySelectorAll('.scroll-dot');
     const sections = document.querySelectorAll('section');
     
+    // Throttle function to prevent excessive scroll event firing
+    function throttle(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
     // Update active dot on scroll
     function updateActiveDot() {
         let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 300)) {
-                current = section.getAttribute('id');
+        const scrollPosition = window.pageYOffset;
+        
+        // If at the very top, always show Home
+        if (scrollPosition < 100) {
+            current = 'home';
+        } else {
+            // Check which section is currently in view
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                // Check if scroll position is within this section
+                if (scrollPosition >= sectionTop - 200 && scrollPosition < sectionTop + sectionHeight - 200) {
+                    current = sectionId;
+                }
+            });
+            
+            // Fallback to first section if none detected
+            if (!current && sections.length > 0) {
+                current = sections[0].getAttribute('id');
             }
-        });
+        }
         
         scrollDots.forEach(dot => {
             dot.classList.remove('active');
@@ -249,7 +299,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    window.addEventListener('scroll', updateActiveDot);
+    // Use throttled version to prevent event conflicts
+    const throttledUpdate = throttle(updateActiveDot, 100);
+    window.addEventListener('scroll', throttledUpdate, { passive: true });
+    updateActiveDot(); // Initialize on page load
     
     // Scroll to section when clicking dot
     scrollDots.forEach(dot => {
@@ -327,13 +380,15 @@ document.addEventListener('DOMContentLoaded', function() {
         ease: "power2.out"
     });
     
-    // Work timeline animations
-    gsap.utils.toArray('.timeline-item').forEach(item => {
+    // Work timeline animations - each item independent
+    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
         gsap.from(item, {
             scrollTrigger: {
                 trigger: item,
                 start: 'top 85%',
-                toggleActions: 'play none none reverse'
+                end: 'top 60%',
+                toggleActions: 'play none none reverse',
+                id: `timeline-${i}`
             },
             duration: 0.8,
             y: 50,
@@ -342,61 +397,116 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Skills cards animations
+    // Skills section animations - each card independent
     gsap.utils.toArray('.skill-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            duration: 0.7,
-            y: 30,
-            opacity: 0,
-            delay: i * 0.08,
-            ease: "power2.out"
-        });
-    });
-    
-    // Education timeline animations
-    gsap.utils.toArray('.education-item').forEach((item, i) => {
-        gsap.from(item, {
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
+                end: 'top 60%',
+                toggleActions: 'play none none reverse',
+                id: `skill-${i}`
             },
             duration: 0.8,
-            x: -50,
+            y: 50,
             opacity: 0,
-            delay: i * 0.08,
             ease: "power2.out"
         });
     });
     
-    // Project cards animations
+    // Education timeline horizontal scroll animation
+    const educationTimeline = document.querySelector('.education-timeline');
+    if (educationTimeline && window.innerWidth > 768) {
+        const educationItems = gsap.utils.toArray('.education-item');
+        const educationSection = document.querySelector('#education');
+        
+        // Calculate proper scroll distance
+        const getScrollAmount = () => {
+            const timelineWidth = educationTimeline.scrollWidth;
+            const viewportWidth = window.innerWidth;
+            return -(timelineWidth - viewportWidth);
+        };
+        
+        // Create horizontal scroll effect with isolated trigger
+        const horizontalTween = gsap.to(educationTimeline, {
+            x: getScrollAmount,
+            ease: "none",
+            scrollTrigger: {
+                trigger: educationSection,
+                start: "top top",
+                end: () => `+=${educationTimeline.scrollWidth}`,
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                anticipatePin: 1,
+                id: "educationScroll",
+                fastScrollEnd: true,
+                preventOverlaps: true
+            }
+        });
+        
+        // Fade in items as they scroll into view (independent of main scroll)
+        educationItems.forEach((item, i) => {
+            gsap.from(item, {
+                opacity: 0,
+                y: 50,
+                scale: 0.9,
+                scrollTrigger: {
+                    trigger: item,
+                    containerAnimation: horizontalTween,
+                    start: "left 80%",
+                    end: "left 50%",
+                    toggleActions: 'play none none reverse',
+                    scrub: 0.5
+                }
+            });
+        });
+    } else if (educationTimeline && window.innerWidth <= 768) {
+        // Simple fade-in for mobile without horizontal scroll
+        const educationItems = gsap.utils.toArray('.education-item');
+        educationItems.forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                    end: 'top 60%',
+                    toggleActions: 'play none none reverse',
+                    id: `education-mobile-${i}`
+                },
+                duration: 0.6,
+                y: 30,
+                opacity: 0,
+                ease: "power2.out"
+            });
+        });
+    }
+    
+    // Project cards animations - each card independent
     gsap.utils.toArray('.project-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                toggleActions: 'play none none reverse'
+                end: 'top 60%',
+                toggleActions: 'play none none reverse',
+                id: `project-${i}`
             },
             duration: 0.7,
             y: 50,
             opacity: 0,
-            delay: i * 0.08,
             ease: "power2.out"
         });
     });
     
-    // Certification cards animations with alternating left/right
+    // Certification cards animations - each card independent
     gsap.utils.toArray('.cert-card').forEach((card, i) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
                 start: 'top 85%',
-                toggleActions: 'play none none reverse'
+                end: 'top 60%',
+                toggleActions: 'play none none reverse',
+                id: `cert-${i}`
             },
             duration: 0.8,
             y: 60,
@@ -430,13 +540,15 @@ document.addEventListener('DOMContentLoaded', function() {
         ease: "power2.out"
     });
     
-    // Section title animations
-    gsap.utils.toArray('.section-title').forEach(title => {
+    // Section title animations - each title independent
+    gsap.utils.toArray('.section-title').forEach((title, i) => {
         gsap.from(title, {
             scrollTrigger: {
                 trigger: title,
                 start: 'top 90%',
-                toggleActions: 'play none none reverse'
+                end: 'top 70%',
+                toggleActions: 'play none none reverse',
+                id: `title-${i}`
             },
             duration: 0.8,
             y: 40,
@@ -455,6 +567,105 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Initialize scroll trigger
+    // Configure ScrollTrigger for optimal independent component behavior
+    ScrollTrigger.config({
+        limitCallbacks: true,
+        syncInterval: 150,
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+        ignoreMobileResize: true
+    });
+    
+    // Initialize scroll trigger with proper refresh
     ScrollTrigger.refresh();
+    
+    // Debounced refresh on window resize to prevent conflicts
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 250);
+    });
 });
+
+// Create floating stars
+function createStars() {
+    const starsContainer = document.querySelector('.stars-container');
+    const starCount = 80;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Random size between 1px and 3px
+        const size = Math.random() * 2 + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        // Random position
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        
+        // Random animation delay and duration
+        star.style.animationDelay = `${Math.random() * 3}s`;
+        star.style.animationDuration = `${Math.random() * 2 + 2}s`;
+        
+        starsContainer.appendChild(star);
+    }
+}
+
+// Create floating bubbles
+function createBubbles() {
+    const bubblesContainer = document.querySelector('.bubbles-container');
+    const bubbleCount = 15;
+    
+    for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        // Random size between 30px and 120px
+        const size = Math.random() * 90 + 30;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Random horizontal position
+        const leftPosition = Math.random() * 100;
+        bubble.style.left = `${leftPosition}%`;
+        
+        // Random horizontal drift (-50px to 50px)
+        const drift = (Math.random() - 0.5) * 100;
+        bubble.style.setProperty('--drift', `${drift}px`);
+        
+        // Random animation delay and duration
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+        bubble.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        
+        bubblesContainer.appendChild(bubble);
+    }
+    
+    // Continuously create new bubbles
+    setInterval(() => {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        const size = Math.random() * 90 + 30;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        const leftPosition = Math.random() * 100;
+        bubble.style.left = `${leftPosition}%`;
+        
+        const drift = (Math.random() - 0.5) * 100;
+        bubble.style.setProperty('--drift', `${drift}px`);
+        
+        bubble.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        
+        bubblesContainer.appendChild(bubble);
+        
+        // Remove bubble after animation completes
+        setTimeout(() => {
+            bubble.remove();
+        }, parseFloat(bubble.style.animationDuration) * 1000);
+    }, 3000);
+}
+

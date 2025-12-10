@@ -1,0 +1,425 @@
+/* Nik AI Chatbot Styles */
+
+/* 3D Model Container - Walking along bottom */
+#nik-3d-container {
+    position: fixed;
+    bottom: 60px;
+    left: 50px;
+    width: 120px;
+    height: 120px;
+    z-index: 100;
+    pointer-events: none;
+    transition: left 3s ease-in-out;
+}
+
+#nik-3d-container canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Chat Toggle Button */
+.nik-chat-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: nikPulse 2s ease-in-out infinite;
+}
+
+.nik-chat-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+}
+
+.nik-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff6584;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 12px;
+    border: 2px solid white;
+}
+
+@keyframes nikPulse {
+    0%, 100% { box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); }
+    50% { box-shadow: 0 8px 35px rgba(102, 126, 234, 0.7), 0 0 30px rgba(102, 126, 234, 0.5); }
+}
+
+/* Chat Window */
+#nik-chat-window {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 400px;
+    height: 500px;
+    max-height: calc(100vh - 150px);
+    background: rgba(45, 43, 85, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: bottom right;
+}
+
+#nik-chat-window.nik-chat-hidden {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    pointer-events: none;
+}
+
+/* Chat Header */
+.nik-chat-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.nik-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nik-avatar-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.nik-avatar-small::after {
+    content: '👽';
+    font-size: 24px;
+}
+
+.nik-chat-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nik-status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    display: inline-block;
+    animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.nik-chat-header p {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.nik-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nik-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Chat Messages */
+#nik-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+#nik-chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#nik-chat-messages::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#nik-chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(108, 99, 255, 0.5);
+    border-radius: 10px;
+}
+
+.nik-message {
+    display: flex;
+    gap: 10px;
+    animation: messageSlideIn 0.4s ease-out;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nik-user-message {
+    flex-direction: row-reverse;
+}
+
+.nik-message-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.nik-bot-message .nik-message-avatar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.nik-bot-message .nik-message-avatar::after {
+    content: '👽';
+}
+
+.nik-user-message .nik-message-avatar {
+    background: linear-gradient(135deg, #ff6584 0%, #ff8a9e 100%);
+}
+
+.nik-user-message .nik-message-avatar::after {
+    content: '👤';
+}
+
+.nik-message-content {
+    max-width: 70%;
+}
+
+.nik-bot-message .nik-message-content {
+    background: rgba(108, 99, 255, 0.2);
+    padding: 12px 16px;
+    border-radius: 0 15px 15px 15px;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.nik-user-message .nik-message-content {
+    background: rgba(255, 101, 132, 0.2);
+    padding: 12px 16px;
+    border-radius: 15px 0 15px 15px;
+    border: 1px solid rgba(255, 101, 132, 0.3);
+    text-align: right;
+}
+
+.nik-message-content p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.nik-message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.nik-typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 12px;
+}
+
+.nik-typing-indicator span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.nik-typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nik-typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+}
+
+/* Quick Actions */
+.nik-quick-actions {
+    padding: 10px 20px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.nik-quick-btn {
+    background: rgba(108, 99, 255, 0.15);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nik-quick-btn:hover {
+    background: rgba(108, 99, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Input Area */
+.nik-chat-input-area {
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#nik-chat-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    border-radius: 25px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#nik-chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#nik-chat-input:focus {
+    border-color: rgba(108, 99, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#nik-send-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#nik-send-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#nik-send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #nik-chat-window {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 180px);
+        max-height: 500px;
+        right: 20px;
+        bottom: 100px;
+    }
+
+    #nik-3d-container {
+        width: 80px;
+        height: 80px;
+        bottom: 40px;
+        left: 20px;
+    }
+
+    .nik-chat-btn {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nik-quick-actions {
+        padding: 8px 15px;
+    }
+
+    .nik-quick-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .nik-message-content {
+        max-width: 80%;
+    }
+}
