@@ -627,10 +627,21 @@ section {
     background: rgba(108, 99, 255, 0.05);
     overflow-x: clip;
     overflow-y: visible;
-    display: flex;
-    align-items: center;
+    display: block;
+    padding: 6rem 0 4rem;
     z-index: 1;
     isolation: isolate;
+}
+
+#education .section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#education .section-title {
+    margin-left: 5%;
+    margin-bottom: 2rem;
 }
 
 .education-timeline {
