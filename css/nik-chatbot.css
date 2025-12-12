@@ -1,23 +1,5 @@
 /* Nik AI Chatbot Styles */
 
-/* 3D Model Container - Walking along bottom */
-#nik-3d-container {
-    position: fixed;
-    bottom: 60px;
-    left: 50px;
-    width: 120px;
-    height: 120px;
-    z-index: 100;
-    pointer-events: none;
-    transition: left 3s ease-in-out;
-}
-
-#nik-3d-container canvas {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-}
-
 /* Chat Toggle Button */
 .nik-chat-btn {
     position: fixed;
@@ -392,13 +374,6 @@
         max-height: 500px;
         right: 20px;
         bottom: 100px;
-    }
-
-    #nik-3d-container {
-        width: 80px;
-        height: 80px;
-        bottom: 40px;
-        left: 20px;
     }
 
     .nik-chat-btn {

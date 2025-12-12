@@ -4,14 +4,6 @@
 class NikChatbot {
     constructor() {
         this.isOpen = false;
-        this.modelPosition = 50;
-        this.isWalking = false;
-        this.scene = null;
-        this.camera = null;
-        this.renderer = null;
-        this.model = null;
-        this.mixer = null;
-        this.walkAnimation = null;
         
         // Portfolio Knowledge Base
         this.knowledgeBase = {
@@ -108,8 +100,6 @@ class NikChatbot {
     init() {
         this.initElements();
         this.initEventListeners();
-        this.init3DModel();
-        this.startWalkingAnimation();
     }
     
     initElements() {
@@ -120,7 +110,6 @@ class NikChatbot {
         this.inputField = document.getElementById('nik-chat-input');
         this.sendBtn = document.getElementById('nik-send-btn');
         this.quickBtns = document.querySelectorAll('.nik-quick-btn');
-        this.container3D = document.getElementById('nik-3d-container');
     }
     
     initEventListeners() {
@@ -386,102 +375,6 @@ class NikChatbot {
         ];
         
         return smartResponses[Math.floor(Math.random() * smartResponses.length)];
-    }
-    
-    // 3D Model Integration
-    init3DModel() {
-        try {
-            // Setup Three.js scene
-            this.scene = new THREE.Scene();
-            
-            this.camera = new THREE.PerspectiveCamera(
-                50,
-                this.container3D.clientWidth / this.container3D.clientHeight,
-                0.1,
-                1000
-            );
-            this.camera.position.z = 2.5;
-            this.camera.position.y = 0.5;
-            
-            this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            this.renderer.setSize(this.container3D.clientWidth, this.container3D.clientHeight);
-            this.renderer.setClearColor(0x000000, 0);
-            this.container3D.appendChild(this.renderer.domElement);
-            
-            // Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-            this.scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-            directionalLight.position.set(2, 2, 2);
-            this.scene.add(directionalLight);
-            
-            // Load model
-            const loader = new THREE.GLTFLoader();
-            loader.load(
-                'assets/alien.glb',
-                (gltf) => {
-                    this.model = gltf.scene;
-                    this.model.scale.set(2, 2, 2);
-                    this.model.position.y = -0.8;
-                    this.scene.add(this.model);
-                    
-                    console.log('✅ 3D Model loaded successfully!');
-                    
-                    // Setup animations
-                    if (gltf.animations && gltf.animations.length > 0) {
-                        this.mixer = new THREE.AnimationMixer(this.model);
-                        this.walkAnimation = this.mixer.clipAction(gltf.animations[0]);
-                        this.walkAnimation.play();
-                    }
-                    
-                    this.animate();
-                },
-                (progress) => {
-                    const percent = (progress.loaded / progress.total * 100).toFixed(0);
-                    console.log(`Loading 3D model: ${percent}%`);
-                },
-                (error) => {
-                    console.error('❌ Error loading 3D model:', error);
-                    console.log('Check if assets/alien.glb exists and is accessible');
-                }
-            );
-            
-        } catch (error) {
-            console.log('3D initialization - continuing without model');
-        }
-    }
-    
-    animate() {
-        requestAnimationFrame(() => this.animate());
-        
-        if (this.mixer) {
-            this.mixer.update(0.01);
-        }
-        
-        if (this.model) {
-            this.model.rotation.y += 0.005;
-        }
-        
-        if (this.renderer && this.scene && this.camera) {
-            this.renderer.render(this.scene, this.camera);
-        }
-    }
-    
-    startWalkingAnimation() {
-        setInterval(() => {
-            if (!this.isWalking) {
-                this.isWalking = true;
-                const targetPosition = Math.random() > 0.5 ? 
-                    window.innerWidth - 170 : 50;
-                
-                this.container3D.style.left = targetPosition + 'px';
-                
-                setTimeout(() => {
-                    this.isWalking = false;
-                }, 3000);
-            }
-        }, 8000);
     }
 }
 
