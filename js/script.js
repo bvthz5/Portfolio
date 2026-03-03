@@ -65,11 +65,64 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.removeChild(link);
     });
 
-    // Form submission
+    // Form submission via formsubmit.co (no library, no API key needed — zero config!)
     elements.messageForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        this.reset();
+
+        const submitBtn = document.getElementById('submitBtn');
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        const payload = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value,
+            _subject: 'Portfolio Contact: ' + document.getElementById('subject').value,
+            _captcha: 'false',
+            _template: 'table'
+        };
+
+        // formsubmit.co AJAX endpoint — no account setup needed
+        fetch('https://formsubmit.co/ajax/binilvincent80@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success === 'true' || data.success === true) {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
+                    submitBtn.style.background = '#00f3ff';
+                    submitBtn.style.color = '#080a12';
+                    elements.messageForm.reset();
+                } else {
+                    console.error('FormSubmit error:', data);
+                    submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error — Try Again';
+                    submitBtn.style.background = '#ff003c';
+                }
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                }, 4000);
+            })
+            .catch(err => {
+                console.error('Network Error:', err);
+                submitBtn.innerHTML = '<i class="fas fa-times"></i> Network Error';
+                submitBtn.style.background = '#ff003c';
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                }, 4000);
+            });
     });
 
     // Use IntersectionObserver for scroll indicators (much more efficient than scroll events)
