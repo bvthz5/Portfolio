@@ -41,8 +41,15 @@
 }
 
 @keyframes nikPulse {
-    0%, 100% { box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); }
-    50% { box-shadow: 0 8px 35px rgba(102, 126, 234, 0.7), 0 0 30px rgba(102, 126, 234, 0.5); }
+
+    0%,
+    100% {
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 8px 35px rgba(102, 126, 234, 0.7), 0 0 30px rgba(102, 126, 234, 0.5);
+    }
 }
 
 /* Chat Window */
@@ -52,7 +59,7 @@
     right: 30px;
     width: 400px;
     height: 500px;
-    max-height: calc(100vh - 150px);
+    max-height: calc(100dvh - 150px);
     background: rgba(45, 43, 85, 0.98);
     backdrop-filter: blur(20px);
     border-radius: 20px;
@@ -126,8 +133,15 @@
 }
 
 @keyframes statusBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
 }
 
 .nik-chat-header p {
@@ -192,6 +206,7 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -281,8 +296,16 @@
 }
 
 @keyframes typingBounce {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-10px); }
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Quick Actions */
@@ -370,7 +393,7 @@
 @media (max-width: 768px) {
     #nik-chat-window {
         width: calc(100vw - 40px);
-        height: calc(100vh - 180px);
+        height: calc(100dvh - 180px);
         max-height: 500px;
         right: 20px;
         bottom: 100px;

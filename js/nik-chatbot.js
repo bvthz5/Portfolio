@@ -41,30 +41,28 @@ class NikChatbot {
             },
             experience: [
                 {
-                    role: "Application Development Associate",
-                    company: "Accenture",
-                    period: "May 2023 - Present",
-                    location: "Bengaluru, India",
-                    description: "Working on enterprise-level applications, implementing scalable solutions and collaborating with cross-functional teams."
-                },
-                {
-                    role: "Software Developer Intern",
-                    company: "Mashupstack Technology",
-                    period: "February 2023 - April 2023",
-                    location: "Kochi, India",
-                    description: "Gained hands-on experience in web development, worked on real-world projects, and learned industry best practices."
+                    role: "Associate Software Engineer",
+                    company: "Innovature Software Labs",
+                    period: "Present",
+                    location: "Kakkanad, Kochi",
+                    description: "Leading software development projects and teams. Designing, developing, and maintaining software systems while collaborating with project managers to establish specifications."
                 }
             ],
             projects: [
                 {
                     name: "Real Estate - Web Application",
-                    description: "Developed a user-friendly online marketplace for property buyers and renters using .NET Core and React.js. The platform offers seamless property listings, search functionality, and modern UI for enhanced user engagement.",
+                    description: "Developed a user-friendly online marketplace for property buyers and renters, offering seamless property listings, search functionality, and modern UI.",
                     technologies: [".NET Core", "React.js", "MySQL"]
                 },
                 {
-                    name: "NoteMarket - Mobile App",
-                    description: "Created a mobile application using React Native for Android and iOS platforms, featuring Firebase integration, Redux state management, and RESTful APIs for seamless user experience.",
-                    technologies: ["React Native", "Firebase", "Redux"]
+                    name: "Doctor Appointment Booking System",
+                    description: "Developed a full-stack web app to streamline appointment scheduling. Users can browse doctors by specialty, view availability, and book slots in real time.",
+                    technologies: ["Node.js", "React.js", "MongoDB"]
+                },
+                {
+                    name: "Marketplace - Web Application",
+                    description: "Built an e-commerce platform replicating core functionalities of Flipkart. Enables users to buy and sell products, with integrated agent support for order delivery.",
+                    technologies: [".NET Core", "React.js", "SQL Server"]
                 }
             ],
             certifications: [
@@ -247,20 +245,20 @@ class NikChatbot {
         
         // Specific tech questions
         if (this.matchesPattern(lowerQuery, ['.net', 'dotnet', 'asp.net', 'c#'])) {
-            return "Yes! Binil is proficient in ASP .NET Core and has completed comprehensive certification in .NET development. He uses it to build scalable web applications and robust backend systems.";
+            return "ACCESS GRANTED: Binil is highly proficient in ASP .NET Core. He uses it to build scalable web applications and robust backend systems like his Real Estate and Marketplace platforms.";
         }
         
         if (this.matchesPattern(lowerQuery, ['react', 'reactjs', 'react.js', 'frontend'])) {
-            return "Binil is skilled in React.js for frontend development. He's built several projects including a Real Estate web application and NoteMarket mobile app using React and React Native.";
+            return "AFFIRMATIVE: Binil is exceptionally skilled in React.js for frontend architecture. He's built several major projects including a Real Estate web application and a Doctor Appointment Booking System using React components.";
         }
         
-        if (this.matchesPattern(lowerQuery, ['database', 'sql', 'mysql'])) {
-            return "Binil works with MySQL and SQL Server for database management. He has hands-on experience in designing database schemas and optimizing queries for performance.";
+        if (this.matchesPattern(lowerQuery, ['database', 'sql', 'mysql', 'mongodb'])) {
+            return "SYSTEM LOG: Binil works natively with MySQL, SQL Server, and MongoDB for database management. He has hands-on experience in designing complex schemas and optimizing queries for high-performance data retrieval.";
         }
         
         // Help/Capabilities
-        if (this.matchesPattern(lowerQuery, ['help', 'what can you do', 'capabilities', 'how can you help'])) {
-            return "I can help you learn about Binil Vincent's:\n• Skills & Technologies\n• Work Experience\n• Projects & Applications\n• Education Background\n• Certifications\n• Achievements (NASA Space Apps!)\n• Contact Information\n\nJust ask me anything!";
+        if (this.matchesPattern(lowerQuery, ['help', 'what can you do', 'capabilities', 'how can you help', 'menu'])) {
+            return "SYSTEM INITIALIZED. I can retrieve Binil Vincent's records regarding:\n\n> SKILLS [Technology Stack]\n> EXPERIENCE [Work History]\n> PROJECTS [Software Built]\n> EDUCATION [Academic Record]\n> AWARDS [NASA Hackathon]\n> CONTACT [Comm-Link]\n\nInput your query below.";
         }
         
         // Thanks
@@ -278,17 +276,17 @@ class NikChatbot {
     
     getGreetingResponse() {
         const greetings = [
-            "Hi! I'm Nik, Binil's AI assistant. 👋 How can I help you today?",
-            "Hello! 👋 I'm here to answer any questions about Binil's skills, experience, and projects. What would you like to know?",
-            "Hey there! I'm Nik, ready to tell you all about Binil Vincent. What interests you?",
-            "Greetings! I'm Nik, Binil's portfolio assistant. Ask me anything about his work!"
+            "SYSTEM ONLINE. I'm Nik, Binil Vincent's AI proxy. How can I assist you today?",
+            "COMM-LINK ESTABLISHED. 👋 I am authorized to share data regarding Binil's technical engineering skills and projects. Query?",
+            "HELLO. I am the NIK AI Terminal. I can retrieve Binil's professional records. What file do you need?",
+            "GREETINGS USER. I am Nik, Binil's integrated portfolio AI. Ask me about his tech stack or experience!"
         ];
         return greetings[Math.floor(Math.random() * greetings.length)];
     }
     
     getAboutResponse() {
         const { name, role, description } = this.knowledgeBase.personal;
-        return `${name} is a ${role}. ${description}\n\nHe's currently working at Accenture as an Application Development Associate and has strong expertise in full-stack development with technologies like .NET Core, React.js, and Node.js.`;
+        return `FILE LOCATED: ${name} is a ${role}.\n\n${description}\n\nHe is currently engineering logic at Innovature Software Labs in Kakkanad, Kochi. He holds command over full-stack systems with strong expertise in .NET Core, React.js, Node.js, and Spring Boot.`;
     }
     
     getSkillsResponse() {
@@ -366,12 +364,12 @@ class NikChatbot {
     }
     
     getSmartResponse(query) {
-        // Intelligent fallback responses
+        // Intelligent fallback responses tailored to the Cyber theme
         const smartResponses = [
-            "That's an interesting question! While I'm focused on Binil's portfolio, I can tell you about his skills, projects, experience, or education. What would you like to know?",
-            "I'm specialized in discussing Binil Vincent's professional profile. Could you ask about his skills, work experience, projects, or certifications?",
-            "I'd love to help! I have detailed information about Binil's technical skills, work history, and achievements. What aspect interests you most?",
-            "Great question! Let me help you learn more about Binil. You can ask me about his programming skills, projects he's built, his work at Accenture, or his educational background."
+            "QUERY UNRECOGNIZED: While my database is extensive, I require specific parameters. Please query me about Binil's SKILSS, PROJECTS, or EXPERIENCE.",
+            "PROCESSING ERROR: I am specifically calibrated to discuss Binil Vincent's professional engineering profile. Could you ask about his tech stack or awards?",
+            "DATA RETRIEVAL: I am a specialized AI terminal. Try extracting data on Binil's 'NASA Hackathon', 'Education', or 'Contact Info'.",
+            "AWAITING INPUT: I can scan my records for Binil's programming architectures, React framework builds, or database management skills. What shall I search?"
         ];
         
         return smartResponses[Math.floor(Math.random() * smartResponses.length)];

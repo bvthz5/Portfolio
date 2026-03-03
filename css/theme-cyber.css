@@ -1,0 +1,842 @@
+/* CYBERPUNK / GAMING PREMIUM THEME OVERRIDES */
+
+:root {
+    --primary: #00f3ff;
+    --primary-dark: #008f99;
+    --secondary: #ff003c;
+    --dark: #080a12;
+    --light: #e0e6ed;
+    --gray: #676e8a;
+    --gradient: linear-gradient(135deg, #00f3ff 0%, #ff003c 100%);
+    --gradient-dark: #080a12;
+    --neon-box-shadow: 0 0 10px rgba(0, 243, 255, 0.2), 0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--light);
+    background: var(--dark);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left !important;
+}
+
+.section-title,
+.home-content h1,
+.home-content h2 {
+    text-align: center !important;
+}
+
+p {
+    text-align: left !important;
+    /* Override legacy justify applied from old styles */
+}
+
+/* Base structural resettings for cyber shapes */
+.project-card,
+.skill-card,
+.cert-card,
+.timeline-content,
+.about-img-inner,
+.profile-img,
+.education-item,
+.contact-info,
+.contact-form,
+.story-card,
+.tech-card,
+.achievement-banner,
+.gallery-item {
+    border-radius: 0 !important;
+    clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px) !important;
+    background: rgba(8, 10, 18, 0.85) !important;
+    border: 1px solid rgba(0, 243, 255, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover,
+.skill-card:hover,
+.cert-card:hover,
+.timeline-content:hover,
+.education-item:hover,
+.contact-info:hover,
+.contact-form:hover {
+    border-color: var(--primary) !important;
+    box-shadow: var(--neon-box-shadow) !important;
+    transform: translateY(-5px) !important;
+}
+
+/* Fix Broken Education Horizontal Scroll Bug */
+#education {
+    overflow-x: hidden !important;
+    padding: 4rem 0 !important;
+}
+
+#education .section-container {
+    align-items: center !important;
+}
+
+#education .section-title {
+    margin-left: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.education-timeline {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    padding: 2rem 0 !important;
+    transform: none !important;
+}
+
+.education-item {
+    width: 100% !important;
+    min-width: unset !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+.education-item::after {
+    display: none !important;
+    /* Remove legacy horizontal connector lines */
+}
+
+/* Animated Grid Background */
+.cyber-grid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: #05060a;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.cyber-grid {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    background-image:
+        linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: rotateX(60deg) translateY(0);
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% {
+        transform: rotateX(60deg) translateY(0);
+    }
+
+    100% {
+        transform: rotateX(60deg) translateY(50px);
+    }
+}
+
+/* Scanning Line Overlay */
+.scanning-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 243, 255, 0.5);
+    box-shadow: 0 0 10px var(--primary);
+    z-index: 9999;
+    pointer-events: none;
+    animation: scan 4s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0 !important;
+    font-family: 'Orbitron', sans-serif !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary) !important;
+    background: transparent !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: rgba(0, 243, 255, 0.1) !important;
+    color: var(--primary) !important;
+}
+
+.btn-primary:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.btn:hover {
+    background: var(--primary) !important;
+    color: #000 !important;
+    box-shadow: 0 0 20px var(--primary);
+}
+
+/* Navigation */
+header {
+    background: rgba(8, 10, 18, 0.9) !important;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+.nav-link {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary) !important;
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    background: rgba(0, 243, 255, 0.05) !important;
+    border-radius: 0 !important;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+/* Remove original gradient underline as it conflicts with the new Cyberpunk button boxes */
+nav a::after {
+    display: none !important;
+}
+
+/* Fix the Logo container to eliminate ugly purple pills and make it match the cyber aesthetic */
+.logo {
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+.logo img {
+    height: 40px !important;
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.8)) !important;
+    transition: all 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Compact the Navigation spacing on desktop to prevent the menu from crashing into the logo on Ipads */
+@media (max-width: 1200px) {
+    nav ul {
+        gap: 1rem !important;
+    }
+
+    .nav-link {
+        padding: 0.3rem 0.6rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Profile Image Update */
+.profile-img {
+    border-radius: 0 !important;
+    box-shadow: var(--neon-box-shadow);
+}
+
+.profile-img::before {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    opacity: 0.5;
+}
+
+.profile-img-inner {
+    border-radius: 0 !important;
+    clip-path: polygon(25px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%, 0 25px);
+}
+
+/* Timelines and Sections */
+.section-title {
+    color: var(--light) !important;
+    text-shadow: 2px 2px 0px rgba(255, 0, 60, 0.8), -2px -2px 0px rgba(0, 243, 255, 0.8);
+    font-size: 3rem !important;
+}
+
+.work-timeline::before {
+    background: rgba(0, 243, 255, 0.3) !important;
+}
+
+.timeline-content::before {
+    border-radius: 0 !important;
+    background: var(--primary) !important;
+    box-shadow: 0 0 10px var(--primary);
+    transform: translateY(-50%) rotate(45deg) !important;
+}
+
+/* Highlight tags (Tech stack) */
+.tech,
+.skill-item {
+    background: rgba(0, 243, 255, 0.1) !important;
+    border: 1px solid rgba(0, 243, 255, 0.5);
+    color: var(--primary) !important;
+    border-radius: 0 !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem !important;
+    letter-spacing: 1px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.tech:hover,
+.skill-item:hover {
+    background: var(--primary) !important;
+    color: #000 !important;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Forms */
+.form-group input,
+.form-group textarea {
+    background: rgba(8, 10, 18, 0.8) !important;
+    border: 1px solid rgba(0, 243, 255, 0.3) !important;
+    border-radius: 0 !important;
+    color: var(--primary) !important;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+/* Glitch effect on Home Title */
+.home-content h1 {
+    position: relative;
+    animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+
+    2%,
+    64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
+}
+
+.home-content h1:before,
+.home-content h1:after {
+    content: 'Binil Vincent';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.home-content h1:before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.home-content h1:after {
+    left: -2px;
+    text-shadow: -2px 0 cyan;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(98px, 9999px, 83px, 0);
+    }
+
+    20% {
+        clip: rect(31px, 9999px, 87px, 0);
+    }
+
+    40% {
+        clip: rect(45px, 9999px, 35px, 0);
+    }
+
+    60% {
+        clip: rect(24px, 9999px, 9px, 0);
+    }
+
+    80% {
+        clip: rect(59px, 9999px, 25px, 0);
+    }
+
+    100% {
+        clip: rect(100px, 9999px, 88px, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(10px, 9999px, 80px, 0);
+    }
+
+    20% {
+        clip: rect(50px, 9999px, 12px, 0);
+    }
+
+    40% {
+        clip: rect(81px, 9999px, 62px, 0);
+    }
+
+    60% {
+        clip: rect(12px, 9999px, 97px, 0);
+    }
+
+    80% {
+        clip: rect(74px, 9999px, 4px, 0);
+    }
+
+    100% {
+        clip: rect(23px, 9999px, 45px, 0);
+    }
+}
+
+/* Project Image Filter */
+.project-img {
+    filter: sepia(100%) hue-rotate(150deg) saturate(200%);
+    transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-img {
+    filter: sepia(0%) !important;
+}
+
+/* Remove default background gradients overriding ours */
+section {
+    background: transparent !important;
+}
+
+/* Hide smooth/soft blobs conflicting with cyberpunk styles */
+.floating-element {
+    display: none !important;
+}
+
+/* Bot Updates */
+.nik-chat-btn {
+    background: rgba(8, 10, 18, 0.9) !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px) !important;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3) !important;
+    animation: cyberPulse 2s ease-in-out infinite !important;
+}
+
+@keyframes cyberPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.2), inset 0 0 5px rgba(0, 243, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(0, 243, 255, 0.6), inset 0 0 10px rgba(0, 243, 255, 0.2);
+    }
+}
+
+.nik-badge {
+    background: var(--secondary) !important;
+    border-radius: 0 !important;
+    border: 1px solid var(--secondary) !important;
+}
+
+#nik-chat-window,
+.nik-chat-header,
+.nik-chat-footer,
+.nik-chat-input-area {
+    border-radius: 0 !important;
+    background: rgba(8, 10, 18, 0.98) !important;
+    border: 1px solid rgba(0, 243, 255, 0.3) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+}
+
+.nik-chat-header {
+    font-family: 'Orbitron', sans-serif !important;
+    background: rgba(0, 243, 255, 0.1) !important;
+    border-bottom: 1px solid var(--primary) !important;
+}
+
+.nik-bot-message .nik-message-content {
+    background: rgba(0, 243, 255, 0.1) !important;
+    border: 1px solid rgba(0, 243, 255, 0.3) !important;
+    color: var(--primary) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px) !important;
+}
+
+.nik-user-message .nik-message-content {
+    background: rgba(255, 0, 60, 0.1) !important;
+    border: 1px solid rgba(255, 0, 60, 0.3) !important;
+    color: var(--secondary) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%) !important;
+}
+
+.nik-avatar-small,
+.nik-bot-message .nik-message-avatar {
+    background: rgba(0, 243, 255, 0.2) !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px) !important;
+}
+
+.nik-user-message .nik-message-avatar {
+    background: rgba(255, 0, 60, 0.2) !important;
+    border: 1px solid var(--secondary) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%) !important;
+}
+
+#nik-chat-input {
+    border-radius: 0 !important;
+    background: rgba(0, 243, 255, 0.05) !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--light) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+}
+
+#nik-send-btn {
+    background: rgba(0, 243, 255, 0.2) !important;
+    color: var(--primary) !important;
+    border-radius: 0 !important;
+    border: 1px solid var(--primary) !important;
+    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px) !important;
+}
+
+.nik-quick-btn {
+    border-radius: 0 !important;
+    background: rgba(8, 10, 18, 0.8) !important;
+    border: 1px solid var(--secondary) !important;
+    color: var(--light) !important;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px) !important;
+}
+
+.nik-quick-btn:hover {
+    background: rgba(255, 0, 60, 0.2) !important;
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+
+/* --- Hackathon specific Premium Overrides --- */
+
+.back-btn {
+    border-radius: 0 !important;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    background: rgba(8, 10, 18, 0.8) !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--primary) !important;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.back-btn:hover {
+    background: rgba(0, 243, 255, 0.2) !important;
+    box-shadow: 0 0 15px var(--primary) !important;
+    transform: translateX(-5px) !important;
+}
+
+.badge {
+    border-radius: 0 !important;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    background: rgba(255, 0, 60, 0.1) !important;
+    border: 1px solid var(--secondary) !important;
+    color: var(--secondary) !important;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px rgba(255, 0, 60, 0.4);
+}
+
+.story-image,
+.gallery-image,
+.ceremony-image {
+    border-radius: 0 !important;
+    border: 2px solid var(--primary) !important;
+    filter: sepia(100%) hue-rotate(150deg) saturate(200%);
+    transition: filter 0.3s ease;
+}
+
+.story-image:hover,
+.gallery-image:hover,
+.ceremony-image:hover {
+    filter: sepia(0%) !important;
+    box-shadow: var(--neon-box-shadow) !important;
+}
+
+.event-details .detail-item {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--primary);
+    text-shadow: 0 0 5px var(--primary);
+}
+
+.event-details i {
+    color: var(--secondary) !important;
+    text-shadow: 0 0 5px var(--secondary);
+}
+
+.linkedin-btn {
+    border-radius: 0 !important;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    background: rgba(0, 119, 181, 0.2) !important;
+    border: 1px solid #0077b5 !important;
+    color: #0077b5 !important;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.linkedin-btn:hover {
+    background: #0077b5 !important;
+    color: #fff !important;
+    box-shadow: 0 0 15px #0077b5 !important;
+}
+
+.achievement-icon {
+    background: rgba(255, 0, 60, 0.1) !important;
+    border: 1px solid var(--secondary) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px) !important;
+}
+
+.achievement-icon i {
+    color: var(--secondary) !important;
+}
+
+.achievement-stats .stat h3 {
+    color: var(--primary) !important;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* --- Extreme Density & Spacing Overrides for Hackathon Page --- */
+
+/* Fix: GSAP scroll-triggers stuck at opacity 0 due to fast scrolling or compact layouts. Force visibility! */
+.story-card,
+.project-showcase,
+.tech-card,
+.achievement-banner,
+.achievement-image,
+.gallery-item,
+.linkedin-cta,
+.gratitude-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Fix: Sections were compacted so heavily they overlapped the Back button and felt squished */
+section {
+    padding: 6rem 1rem 4rem 1rem !important;
+    /* Re-introduce safe top padding to prevent header collision */
+}
+
+.story-card {
+    gap: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.story-text p {
+    margin-bottom: 1.2rem !important;
+}
+
+.highlight-text {
+    margin-bottom: 2rem !important;
+}
+
+.project-showcase {
+    margin: 3rem 0 !important;
+    padding: 3rem !important;
+}
+
+.showcase-title {
+    margin-bottom: 1.5rem !important;
+    font-size: 2rem !important;
+}
+
+.project-hero {
+    gap: 2.5rem !important;
+}
+
+.technical-section {
+    margin: 3rem 0 !important;
+}
+
+.tech-title {
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 2rem !important;
+}
+
+.tech-grid {
+    gap: 1.5rem !important;
+}
+
+.tech-card {
+    padding: 2rem !important;
+}
+
+.achievement-section {
+    padding: 5rem 1rem !important;
+}
+
+.achievement-banner {
+    padding: 3rem !important;
+    gap: 2rem !important;
+}
+
+.team-members {
+    margin-top: 1rem !important;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.achievement-stats {
+    margin-top: 2rem !important;
+}
+
+.gallery-section {
+    padding: 6rem 1rem !important;
+}
+
+.gallery-grid {
+    gap: 2rem !important;
+    margin-top: 3rem !important;
+    /* Proper distance from title */
+}
+
+.gallery-item {
+    margin-bottom: 0 !important;
+    height: 350px !important;
+    /* Give them sturdy visible heights */
+}
+
+/* --- Hero Section Density --- */
+.hero-section {
+    min-height: auto !important;
+    padding: 8rem 2rem 4rem 2rem !important;
+}
+
+.glitch {
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 3rem !important;
+    margin-bottom: 0.5rem !important;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    margin-bottom: 1.5rem !important;
+    font-family: 'Rajdhani', sans-serif !important;
+}
+
+.event-details {
+    margin-top: 1rem !important;
+    gap: 1.5rem !important;
+}
+
+.scroll-indicator-anim {
+    display: none !important;
+    /* Remove bounce arrow as hero is densely packed now */
+}
+
+/* Hide universal scroll pill indicator on right margin */
+.scroll-indicator {
+    display: none !important;
+}
+
+/* --- Mobile Specific Density Crushing --- */
+@media (max-width: 768px) {
+    .story-card {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .story-card.reverse {
+        flex-direction: column !important;
+    }
+
+    .project-hero {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        text-align: left;
+    }
+
+    .glitch {
+        font-size: 2rem !important;
+    }
+
+    .back-btn {
+        top: 1rem !important;
+        left: 1rem !important;
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .hero-section {
+        padding: 6rem 1rem 2rem 1rem !important;
+    }
+}
