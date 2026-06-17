@@ -1066,6 +1066,10 @@ section {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
 .cert-list li:last-child {
@@ -1074,9 +1078,14 @@ section {
     border-bottom: none;
 }
 
-.cert-list a {
+.cert-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-title {
     color: var(--light);
-    text-decoration: none;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -1085,12 +1094,39 @@ section {
     margin-bottom: 0.4rem;
 }
 
-.cert-list a:hover {
+.cert-list li:hover .cert-title {
     color: var(--primary);
-    transform: translateX(5px);
 }
 
-.cert-list a i {
+.cert-title i {
+    font-size: 0.8rem;
+}
+
+.btn-view-cert {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-view-cert:hover {
+    background: var(--gradient);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.btn-view-cert i {
     font-size: 0.8rem;
 }
 
