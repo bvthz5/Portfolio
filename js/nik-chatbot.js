@@ -17,19 +17,29 @@ class NikChatbot {
                         degree: "Master of Computer Applications (MCA)",
                         institution: "St. Joseph's College of Engineering and Technology",
                         period: "2024 - 2026",
-                        location: "Palai, KTU, Kerala"
+                        location: "Palai, KTU, Kerala",
+                        details: "Specializing in software development, data analytics, database management, and modern computing technologies."
                     },
                     {
                         degree: "Bachelor of Computer Applications (BCA)",
-                        institution: "Mar Augusthinese College",
+                        institution: "Mar Augusthinose College",
                         period: "2019 - 2022",
-                        location: "Ramapuram, Mahatma Gandhi University, Kottayam"
+                        location: "Ramapuram, Mahatma Gandhi University, Kottayam",
+                        details: "Built a strong foundation in programming, web development, databases, and computer science fundamentals."
                     },
                     {
-                        degree: "Higher Secondary Education",
+                        degree: "Higher Secondary Education (12th)",
                         institution: "Government Higher Secondary School",
                         period: "2017 - 2019",
-                        location: "Kadappoor"
+                        location: "Kadappoor, Kerala Board of Higher Secondary Examination",
+                        details: "Focused on computer science and science stream, strengthening analytical thinking, mathematics, and algorithmic problem-solving."
+                    },
+                    {
+                        degree: "Secondary School Education (10th)",
+                        institution: "Holy Cross Higher Secondary School",
+                        period: "2017",
+                        location: "Cherpunkal, Kerala Board of Public Secondary Examination",
+                        details: "Completed secondary education with strong academic distinction, establishing fundamental scientific and computational acumen."
                     }
                 ]
             },
@@ -43,12 +53,17 @@ class NikChatbot {
                 {
                     role: "Associate Software Engineer",
                     company: "Innovature Software Labs",
-                    period: "Present",
+                    period: "2022 - 2023",
                     location: "Kakkanad, Kochi",
-                    description: "Leading software development projects and teams. Designing, developing, and maintaining software systems while collaborating with project managers to establish specifications."
+                    description: "Leading software development projects and engineering teams. Designing, developing, and maintaining software systems while collaborating with project managers to establish specifications."
                 }
             ],
             projects: [
+                {
+                    name: "Seat-Sync",
+                    description: "Smart Academic Seating & Examination Integrity Management System custom-engineered for St. Joseph's College of Engineering and Technology (SJCET Palai). Replaces manual spreadsheets with an automated Dual-Pool Interleaving Matchmaking Engine generating 1,000+ seat allocations across campus halls in <800ms with real-time Socket.io push notifications to student dashboards, university end-semester and internal series modules, and strict anti-collusion mathematical proofs.",
+                    technologies: ["React 19", "TypeScript", "Node.js", "Express 5", "Socket.io", "Sequelize ORM", "MySQL"]
+                },
                 {
                     name: "Real Estate - Web Application",
                     description: "Developed a user-friendly online marketplace for property buyers and renters, offering seamless property listings, search functionality, and modern UI.",
@@ -286,7 +301,7 @@ class NikChatbot {
     
     getAboutResponse() {
         const { name, role, description } = this.knowledgeBase.personal;
-        return `FILE LOCATED: ${name} is a ${role}.\n\n${description}\n\nHe is currently engineering logic at Innovature Software Labs in Kakkanad, Kochi. He holds command over full-stack systems with strong expertise in .NET Core, React.js, Node.js, and Spring Boot.`;
+        return `FILE LOCATED: ${name} is a ${role}.\n\n${description}\n\nHe has worked as an Associate Software Engineer at Innovature Software Labs in Kakkanad, Kochi (2022 - 2023). He holds command over full-stack systems with strong expertise in .NET Core, React.js, Node.js, and Spring Boot.`;
     }
     
     getSkillsResponse() {

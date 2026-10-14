@@ -1013,6 +1013,30 @@ body {
     font-size: 0.95rem;
 }
 
+.btn-nasa-drive-cert {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    padding: 0.7rem 1.4rem !important;
+    border-radius: 50px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 0.8rem !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-nasa-drive-cert:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    transform: translateY(-3px) scale(1.03) !important;
+    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35) !important;
+    color: #ffffff !important;
+}
+
 /* LinkedIn Section */
 .linkedin-section {
     padding: 6rem 0;

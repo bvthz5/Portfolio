@@ -11,10 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css?v=1.2">
     <link rel="stylesheet" href="css/theme-cyber.css">
+    <link rel="stylesheet" href="css/certificates-showcase.css">
+    <link rel="stylesheet" href="css/seatsync.css">
     <link rel="stylesheet" href="css/nik-chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -85,15 +87,15 @@
         <!-- Home Section -->
         <section id="home">
             <div class="home-content">
+                <div class="hero-status-badge">
+                    <span class="status-pulse-dot"></span> Available for Opportunities
+                </div>
                 <h1>Binil Vincent</h1>
-                <h2>Software Engineer</h2>
-                <p>Dedicated Software Engineer with hands-on experience in developing scalable web applications and
-                    robust backend systems. Skilled in writing clean, maintainable code to ensure long-term efficiency
-                    and ease of debugging.</p>
+                <h2>Software Engineer <span class="hero-role-accent">& Full-Stack Developer</span></h2>
+                <p>Dedicated Software Engineer specializing in scalable full-stack applications, distributed backend systems, and clean architectural design. Experienced in .NET Core, React, Node.js, and cloud ecosystems.</p>
                 <div class="btn-container">
-                    <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="#" class="btn btn-secondary" id="download-cv"><i class="fas fa-download"></i> Download
-                        CV</a>
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                    <a href="#" class="btn btn-secondary" id="download-cv"><i class="fas fa-download"></i> Download CV</a>
                 </div>
             </div>
             <div class="profile-img-container">
@@ -108,7 +110,7 @@
         <!-- About Section -->
         <section id="about">
             <div class="section-container">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">About <span class="title-highlight">Me</span></h2>
                 <div class="about-container">
                     <div class="about-img-container">
                         <div class="about-img-slideshow">
@@ -141,20 +143,27 @@
         <!-- Work Experience Section -->
         <section id="work">
             <div class="section-container">
-                <h2 class="section-title">Work Experience</h2>
+                <h2 class="section-title">Work <span class="title-highlight">Experience</span></h2>
                 <div class="work-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Associate Software Engineer</h3>
-                            <h4>Innovature Software Labs</h4>
-                            <p class="work-location"><i class="fas fa-map-marker-alt"></i> Kakkanad, Kochi</p>
-                            <ul>
-                                <li>Leading software development projects and teams</li>
-                                <li>Designing, developing, and maintaining software systems</li>
-                                <li>Collaborating with project managers, designers, and other stakeholders to establish
-                                    project requirements and specifications</li>
-                                <li>Effectively communicating with team members and other stakeholders</li>
+                    <!-- Milestone: Associate Software Engineer (2022 - 2023) -> 2023 -->
+                    <div class="work-milestone milestone-left">
+                        <div class="milestone-card">
+                            <div class="milestone-badge">2022 - 2023</div>
+                            <h3 class="milestone-title">Associate Software Engineer</h3>
+                            <h4 class="milestone-institution">Innovature Software Labs</h4>
+                            <div class="milestone-meta">
+                                <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> Kakkanad, Kochi</span>
+                                <span class="meta-tag"><i class="fas fa-briefcase"></i> Full-time</span>
+                            </div>
+                            <ul class="milestone-list">
+                                <li>Leading software development projects and engineering teams</li>
+                                <li>Designing, developing, and maintaining high-performance software systems</li>
+                                <li>Collaborating with project managers, designers, and stakeholders to establish technical specifications</li>
+                                <li>Effectively communicating across cross-functional teams to ensure clean, maintainable code</li>
                             </ul>
+                        </div>
+                        <div class="milestone-node">
+                            <span class="node-year">2023</span>
                         </div>
                     </div>
                 </div>
@@ -164,7 +173,7 @@
         <!-- Skills Section -->
         <section id="skills">
             <div class="section-container">
-                <h2 class="section-title">Skills</h2>
+                <h2 class="section-title">Technical <span class="title-highlight">Skills</span></h2>
                 <div class="skills-container">
                     <div class="skill-card">
                         <h3><i class="fas fa-code"></i> Technologies</h3>
@@ -211,38 +220,77 @@
         <!-- Education Section -->
         <section id="education">
             <div class="section-container">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title">My <span class="title-highlight">Academic Foundation</span></h2>
                 <div class="education-timeline">
-                    <div class="education-item">
-                        <div class="education-content">
-                            <h3>Master of Computer Applications (MCA)</h3>
-                            <h4>St. Joseph's College of Engineering and Technology</h4>
-                            <span class="date">2024 - 2026 | Palai</span>
-                            <p>KTU, Kerala</p>
+                    <!-- Milestone 1: MCA (2024 - 2026) -> 2026 -->
+                    <div class="education-milestone milestone-left">
+                        <div class="milestone-card">
+                            <div class="milestone-badge">2024 - 2026</div>
+                            <h3 class="milestone-title">Master of Computer Applications (MCA)</h3>
+                            <h4 class="milestone-institution">St. Joseph's College of Engineering & Technology, Pala</h4>
+                            <div class="milestone-meta">
+                                <span class="meta-tag"><i class="fas fa-university"></i> KTU, Kerala</span>
+                            </div>
+                            <p class="milestone-desc">
+                                Specializing in software development, data analytics, database management, and modern computing technologies.
+                            </p>
+                        </div>
+                        <div class="milestone-node">
+                            <span class="node-year">2026</span>
                         </div>
                     </div>
-                    <div class="education-item">
-                        <div class="education-content">
-                            <h3>Bachelor of Computer Applications (BCA)</h3>
-                            <h4>Mar Augusthinese College</h4>
-                            <span class="date">2019 - 2022 | Ramapuram</span>
-                            <p>Mahatma Gandhi University, Kottayam</p>
+
+                    <!-- Milestone 2: BCA (2019 - 2022) -> 2022 -->
+                    <div class="education-milestone milestone-right">
+                        <div class="milestone-card">
+                            <div class="milestone-badge">2019 - 2022</div>
+                            <h3 class="milestone-title">Bachelor of Computer Applications (BCA)</h3>
+                            <h4 class="milestone-institution">Mar Augusthinose College, Ramapuram</h4>
+                            <div class="milestone-meta">
+                                <span class="meta-tag"><i class="fas fa-university"></i> Mahatma Gandhi University, Kottayam</span>
+                            </div>
+                            <p class="milestone-desc">
+                                Built a strong foundation in programming, web development, databases, and computer science fundamentals.
+                            </p>
+                        </div>
+                        <div class="milestone-node">
+                            <span class="node-year">2022</span>
                         </div>
                     </div>
-                    <div class="education-item">
-                        <div class="education-content">
-                            <h3>Higher Secondary Education</h3>
-                            <h4>Government Higher Secondary School</h4>
-                            <span class="date">2017 - 2019 | Kadappoor</span>
-                            <p>Kerala Board of Higher Secondary Examination</p>
+
+                    <!-- Milestone 3: Higher Secondary / 12th (2017 - 2019) -> 2019 -->
+                    <div class="education-milestone milestone-left">
+                        <div class="milestone-card">
+                            <div class="milestone-badge">2017 - 2019</div>
+                            <h3 class="milestone-title">Higher Secondary Education (12th)</h3>
+                            <h4 class="milestone-institution">Government Higher Secondary School, Kadappoor</h4>
+                            <div class="milestone-meta">
+                                <span class="meta-tag"><i class="fas fa-graduation-cap"></i> Kerala Board of Higher Secondary Examination</span>
+                            </div>
+                            <p class="milestone-desc">
+                                Focused on computer science and science stream, strengthening analytical thinking, mathematics, and algorithmic problem-solving.
+                            </p>
+                        </div>
+                        <div class="milestone-node">
+                            <span class="node-year">2019</span>
                         </div>
                     </div>
-                    <div class="education-item">
-                        <div class="education-content">
-                            <h3>Secondary Education</h3>
-                            <h4>Holy Cross Higher Secondary School</h4>
-                            <span class="date">2017 | Cherpunkal</span>
-                            <p>Kerala Board of Public Secondary Examination</p>
+
+                    <!-- Milestone 4: Secondary School / 10th (2017) -> 2017 -->
+                    <div class="education-milestone milestone-right">
+                        <div class="milestone-card">
+                            <div class="milestone-badge">2016 - 2017</div>
+                            <h3 class="milestone-title">Secondary School Education (10th)</h3>
+                            <h4 class="milestone-institution">Holy Cross Higher Secondary School, Cherpunkal</h4>
+                            <div class="milestone-meta">
+                                <span class="meta-tag"><i class="fas fa-school"></i> Kerala Board of Public Secondary Examination</span>
+                            </div>
+                            <p class="milestone-desc">
+                                Completed secondary education with strong academic distinction, establishing fundamental scientific and computational acumen.
+                            </p>
+                        </div>
+                        <div class="milestone-node">
+                            <span class="node-year">2017</span>
                         </div>
                     </div>
                 </div>
@@ -252,17 +300,42 @@
         <!-- Projects Section -->
         <section id="projects">
             <div class="section-container">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">Featured <span class="title-highlight">Projects</span></h2>
                 <div class="projects-container">
+                    <div class="project-card">
+                        <div class="project-img" style="background: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%);">
+                            <i class="fas fa-chair"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header-row">
+                                <h3>Seat-Sync</h3>
+                                <a href="https://github.com/bvthz5/Seat-Sync.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View Seat-Sync on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Smart exam seating platform custom-built for SJCET Palai. Features dual-pool interleaving to prevent malpractice, sub-second hall allocation, and real-time Socket.io seat notifications.</p>
+                            <div class="tech-stack">
+                                <span class="tech">React 19</span>
+                                <span class="tech">TypeScript</span>
+                                <span class="tech">Node.js</span>
+                                <span class="tech">Socket.io</span>
+                                <span class="tech">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="project-card">
                         <div class="project-img" style="background: linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%);">
                             <i class="fas fa-home"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Real Estate - Web Application</h3>
-                            <p>Developed a user-friendly online marketplace for property buyers and renters using .NET
-                                Core and React.js. The platform offers seamless property listings, search functionality,
-                                and modern UI for enhanced user engagement.</p>
+                            <div class="project-header-row">
+                                <h3>Real Estate - Web Application</h3>
+                                <a href="https://github.com/bvthz5/realestate.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View realestate on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Modern property marketplace built with .NET Core and React.js. Enables seamless property discovery, interactive listings, smart filtering, and direct buyer-renter engagement.</p>
                             <div class="tech-stack">
                                 <span class="tech">.NET Core</span>
                                 <span class="tech">React.js</span>
@@ -270,15 +343,19 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card">
                         <div class="project-img" style="background: linear-gradient(135deg, #FF6584 0%, #FFB347 100%);">
                             <i class="fas fa-stethoscope"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Doctor Appointment Booking System</h3>
-                            <p>Developed a full-stack web app using Node.js and React.js to streamline appointment
-                                scheduling. Users can browse doctors by specialty, view availability, and book slots in
-                                real time.</p>
+                            <div class="project-header-row">
+                                <h3>Doctor Appointment Booking System</h3>
+                                <a href="https://github.com/bvthz5/doctor_appointment_booking.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View doctor_appointment_booking on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Full-stack healthcare booking platform using Node.js and React.js. Patients can explore specialists, inspect real-time clinic availability, and instantly reserve consultation slots.</p>
                             <div class="tech-stack">
                                 <span class="tech">Node.js</span>
                                 <span class="tech">React.js</span>
@@ -286,15 +363,19 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card">
                         <div class="project-img" style="background: linear-gradient(135deg, #36D1DC 0%, #5D26C1 100%);">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Marketplace - Web Application</h3>
-                            <p>Built an e-commerce platform using .NET Core and React.js, replicating core
-                                functionalities of Flipkart. Enables users to buy and sell products, with integrated
-                                agent support for order delivery.</p>
+                            <div class="project-header-row">
+                                <h3>Marketplace - Web Application</h3>
+                                <a href="https://github.com/bvthz5/marketplace.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View marketplace on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Dynamic e-commerce marketplace built with .NET Core and React.js. Features modular catalog browsing, cart workflows, checkout, and integrated courier delivery tracking.</p>
                             <div class="tech-stack">
                                 <span class="tech">.NET Core</span>
                                 <span class="tech">React.js</span>
@@ -307,10 +388,13 @@
                             <i class="fas fa-tint"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Smart Blood Connect</h3>
-                            <p>An end-to-end blood bank management platform with donor-seeker matching. Features React +
-                                Vite frontend, Flask REST API, PostgreSQL database, and ML-powered compatibility
-                                matching engine with JWT authentication.</p>
+                            <div class="project-header-row">
+                                <h3>Smart Blood Connect</h3>
+                                <a href="https://github.com/bvthz5/Smart-Blood-Connect.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View Smart-Blood-Connect on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Automated blood bank network connecting donors and hospitals with React and Flask. Features ML-driven compatibility matching, emergency donor alerts, and secure JWT authentication.</p>
                             <div class="tech-stack">
                                 <span class="tech">React</span>
                                 <span class="tech">Flask</span>
@@ -319,32 +403,46 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card">
                         <div class="project-img" style="background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);">
                             <i class="fas fa-globe"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Exoplanet Detection System</h3>
-                            <p>Machine learning project for NASA Space Apps Challenge analyzing star brightness data to
-                                detect exoplanets. Identifies flux dips in light-curves to predict planetary orbits,
-                                automating astronomical discovery.</p>
+                            <div class="project-header-row">
+                                <h3>Exoplanet Detection System</h3>
+                                <div style="display: inline-flex; align-items: center; gap: 0.65rem;">
+                                    <a href="https://github.com/bvthz5/Nasa---Hunting_exoplanets.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View Nasa - Hunting exoplanets on GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="hackathon-nasa.html#certificates" class="project-header-icon-link" title="View NASA Space Apps Hackathon Credentials">
+                                        <i class="fas fa-rocket"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p>AI astronomical research tool built for the NASA Space Apps Challenge. Analyzes Kepler light-curve flux dips using machine learning to detect candidate exoplanetary transits.</p>
                             <div class="tech-stack">
                                 <span class="tech">Python</span>
                                 <span class="tech">Scikit-Learn</span>
                                 <span class="tech">Pandas</span>
-                                <span class="tech">Machine Learning</span>
+                                <span class="tech">ML</span>
+                                <a href="hackathon-nasa.html#certificates" class="tech tech-link" title="NASA Hackathon Details & Credentials"><i class="fas fa-award"></i> NASA Cert ↗</a>
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card">
                         <div class="project-img" style="background: linear-gradient(135deg, #11998E 0%, #38EF7D 100%);">
                             <i class="fas fa-pills"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Pharmacy Management System</h3>
-                            <p>Full-stack web application for managing pharmacy inventory, medicines, and operations.
-                                Features comprehensive stock tracking, medicine data management, and structured database
-                                system for pharmacy operations.</p>
+                            <div class="project-header-row">
+                                <h3>Pharmacy Management System</h3>
+                                <a href="https://github.com/bvthz5/pharmacy-management.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View pharmacy-management on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Inventory and dispensary platform built with Java and TypeScript. Streamlines prescription records, stock reorder alerts, supplier tracking, and pharmacy sales analytics.</p>
                             <div class="tech-stack">
                                 <span class="tech">Java</span>
                                 <span class="tech">TypeScript</span>
@@ -353,15 +451,19 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="project-card">
                         <div class="project-img" style="background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);">
                             <i class="fas fa-shopping-bag"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Online Shopping System</h3>
-                            <p>E-commerce web application enabling product browsing, cart management, and online
-                                purchases. Includes admin dashboard for product management, order tracking, and
-                                inventory control with secure checkout.</p>
+                            <div class="project-header-row">
+                                <h3>Online Shopping System</h3>
+                                <a href="https://github.com/bvthz5" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View bvthz5 on GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p>Responsive web store featuring multi-category product catalogs, shopping cart sessions, payment gateways, and an administrative order management dashboard.</p>
                             <div class="tech-stack">
                                 <span class="tech">PHP</span>
                                 <span class="tech">MySQL</span>
@@ -374,140 +476,206 @@
             </div>
         </section>
 
-        <!-- Certifications Section -->
-        <section id="certifications">
-            <div class="section-container">
-                <h2 class="section-title">Certifications</h2>
-                <div class="certs-container">
-                    <div class="cert-card">
-                        <h3><i class="fas fa-certificate"></i> Professional Certifications</h3>
-                        <ul class="cert-list">
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> Essential Computer Skills: Office Tools & IT Fundamentals</div>
-                                    <span class="cert-desc">35-hour intensive course</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> Object-Oriented Programming Essentials</div>
-                                    <span class="cert-desc">St. Joseph's College of Engineering - MCA Program</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1mOv0zz4njb3y6Nu37_TMj2TAS6Dk3Bor/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> Industry 4.0 & Industrial Internet of Things</div>
-                                    <span class="cert-desc">NPTEL Online Certification - Score: 77%</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1KDZHFyCmHsnH9iLfeaOHD1MF86e3IV5j/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> AI-Integrated Cloud & DevOps Workshop</div>
-                                    <span class="cert-desc">Red Hat & ipsr solutions - Red Academy</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/18U3X6JmA2y6-dWPCF9FJU2dZbJ-NrA57/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> Voice of Stakeholder (VOS) Training</div>
-                                    <span class="cert-desc">Young Innovators Program 7.0 - K-DISC</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1K4FzBIGXjhBqnPuVf5NWZ7wnWZMZzHhD/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                        </ul>
+        <!-- Futuristic Holographic Certifications Section -->
+        <section id="certifications" class="cert-showcase-section">
+            <div class="cert-section-inner">
+                <!-- Section Header -->
+                <div class="cert-showcase-header">
+                    <h2 class="cert-main-title">
+                        My <span class="cert-gradient-text">Certificates</span>
+                    </h2>
+                    <div class="cert-badges-row">
+                        <button class="cert-pill-badge active" data-filter="all" type="button">
+                            <i class="fas fa-graduation-cap"></i> 10 Verified Credentials
+                        </button>
+                        <button class="cert-pill-badge" data-filter="tech" type="button">
+                            <i class="fas fa-certificate"></i> 5 Professional & Tech
+                        </button>
+                        <button class="cert-pill-badge" data-filter="hackathon" type="button">
+                            <i class="fas fa-trophy"></i> 5 Hackathons & Honors
+                        </button>
+                        <a href="hackathon-nasa.html#certificates" class="cert-pill-badge cert-pill-nasa" title="Explore NASA Space Apps Hackathon Credentials & Project">
+                            <i class="fas fa-rocket"></i> NASA Space Apps Page ↗
+                        </a>
                     </div>
-                    <div class="cert-card">
-                        <h3><i class="fas fa-trophy"></i> Hackathons & Competitions</h3>
-                        <ul class="cert-list">
-                            <li class="hackathon-highlight">
-                                <div class="cert-info">
-                                    <div class="cert-title featured-hackathon">
-                                        <i class="fas fa-star"></i> NASA Space Apps Challenge 2025 - My First Offline Hackathon
+                    <!-- View Mode Toggle: Spotlight Carousel vs All Cards Grid -->
+                    <div class="cert-mode-switcher-row">
+                        <div class="cert-view-toggle">
+                            <button class="cert-toggle-btn active" id="certViewShowcaseBtn" type="button" title="Interactive Spotlight Showcase">
+                                <i class="fas fa-atom"></i> Spotlight Showcase
+                            </button>
+                            <button class="cert-toggle-btn" id="certViewGridBtn" type="button" title="Display all 10 verified certificates in a grid">
+                                <i class="fas fa-th-large"></i> All Cards Grid (10)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hologram Stage Centerpiece -->
+                <div class="cert-stage-wrapper" id="certStageWrapper">
+                    <div class="cert-nav-container">
+                        <!-- Left Navigation Arrow -->
+                        <button class="cert-stage-arrow prev" id="certPrevArrow" aria-label="Previous Certificate" type="button">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <!-- The Showcase Card (Centerpiece) -->
+                        <div class="cert-showcase-card" id="certShowcaseCard" style="--active-theme-color: #00f2fe; --active-theme-glow: rgba(0, 242, 254, 0.42); --active-theme-glow-inner: rgba(0, 242, 254, 0.12);">
+                            <div class="cert-card-content">
+                                <!-- Top Bar -->
+                                <div class="cert-card-topbar">
+                                    <div class="cert-issuer-brand" id="certBrandLogo">
+                                        SJCET PALAI<span class="cert-brand-dot" id="certBrandDot">.</span>
                                     </div>
-                                    <span class="cert-desc">Top 10 Team Achievement • Galactic Problem Solver • Amal Jyothi College</span>
+                                    <div class="cert-meta-right">
+                                        <div class="cert-date-index-row">
+                                            <span class="cert-issue-date" id="certIssueDate">2025</span>
+                                            <span class="cert-index-pill" id="certIndexPill">[ 01 / 10 ]</span>
+                                        </div>
+                                        <span class="cert-id-label" id="certId">Certificate ID: SJCET-ECS-2025-01</span>
+                                    </div>
                                 </div>
-                                <a href="hackathon-nasa.html" target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> NASA Space Apps Challenge - Galactic Problem Solver</div>
-                                    <span class="cert-desc">International Recognition • October 4-5, 2025</span>
+
+                                <!-- Main Body -->
+                                <div class="cert-card-main">
+                                    <div class="cert-credential-subtitle" id="certCredentialSubtitle">CREDENTIAL OF ACHIEVEMENT</div>
+                                    <h3 class="cert-main-name" id="certMainTitle">Essential Computer Skills: Office Tools & IT Fundamentals</h3>
+                                    <span class="cert-type-tag" id="certTypeTag">35-HOUR INTENSIVE COURSE</span>
+                                    <p class="cert-description-text" id="certDescription">
+                                        35-hour intensive foundational program covering workplace computing essentials, office productivity toolsets, digital data management, and fundamental information technology principles.
+                                    </p>
+                                    <div class="cert-skills-list" id="certSkillsContainer">
+                                        <span class="cert-skill-pill">Office Productivity</span>
+                                        <span class="cert-skill-pill">IT Fundamentals</span>
+                                        <span class="cert-skill-pill">Data Management</span>
+                                        <span class="cert-skill-pill">Computer Systems</span>
+                                    </div>
                                 </div>
-                                <a href="https://drive.google.com/file/d/1T9JEiZ14FvEzQec9FGEqSUyA_olEGNYM/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> NASA Space Apps Challenge 2025 - Participation</div>
-                                    <span class="cert-desc">Amal Jyothi College of Engineering • October 4-5, 2025</span>
+
+                                <!-- Footer -->
+                                <div class="cert-card-footer">
+                                    <div class="cert-issuer-details">
+                                        <div class="cert-issuer-name" id="certIssuerName">St. Joseph's College of Engineering & Technology</div>
+                                        <div class="cert-issuer-sub" id="certIssuerSub">Department of Computer Applications • Palai, Kerala</div>
+                                    </div>
+
+                                    <div class="cert-action-cluster">
+                                        <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-cert-view-main" id="viewCertificateBtn">
+                                            <i class="fas fa-external-link-alt"></i> View Certificate
+                                        </a>
+                                        <button type="button" class="btn-cert-details-btn" id="previewCertDetailsBtn" title="Certificate Details & Verification">
+                                            <i class="fas fa-id-card"></i> Details
+                                        </button>
+                                        <a href="hackathon-nasa.html#certificates" class="btn-cert-story-btn" id="certStoryBtn" style="display: none;">
+                                            <i class="fas fa-rocket"></i> NASA Story
+                                        </a>
+                                    </div>
+
+                                    <div class="cert-seal-badge" title="Genuine Credential Verified">
+                                        <i class="fas fa-award"></i>
+                                        <span class="cert-seal-text">VERIFIED</span>
+                                    </div>
                                 </div>
-                                <a href="https://drive.google.com/file/d/1g0ZrDBTVtBGPYhgFVY1HGuP9KxqehR5w/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> NASA Space Apps - Top 10 Senior Category</div>
-                                    <span class="cert-desc">Achievement Award • Amal Jyothi College • October 2025</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1ugb4DiAJcJyct59_8swNpT5qaAXKsDx4/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> Build With India - Google Office Finale</div>
-                                    <span class="cert-desc">Top 5,000 Teams out of 25,000 • Outstanding Performance</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1FkDr1hKmKYZp4uRvHbMqGNUxZhQ4Ey0c/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="cert-info">
-                                    <div class="cert-title"><i class="fas fa-award"></i> HashItUp - 24-Hour National Hackathon</div>
-                                    <span class="cert-desc">Team CARING ARMS • MBCCET Kuttikkanam • Sept 26-27, 2025</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1uRmMtodb8hPMQJ4w1VPYjUXYsf7USGpV/view?usp=sharing"
-                                    target="_blank" class="btn-view-cert">
-                                    View <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Navigation Arrow -->
+                        <button class="cert-stage-arrow next" id="certNextArrow" aria-label="Next Certificate" type="button">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
+
+                    <!-- Holographic Pedestal & Upward Light Beam -->
+                    <div class="cert-holo-stage">
+                        <div class="cert-holo-beam"></div>
+                        <div class="cert-holo-emitter"></div>
+                    </div>
+                </div>
+
+                <!-- Bottom Thumbnails / Selector Carousel Strip -->
+                <div class="cert-thumbnails-container" id="certThumbnailsContainer">
+                    <div class="cert-thumbnails-track" id="certThumbnailsTrack">
+                        <!-- Populated dynamically by js/certificates.js -->
+                    </div>
+                </div>
+
+                <!-- All Certificates Grid View (Populated dynamically by js/certificates.js) -->
+                <div class="cert-all-grid-container" id="certAllGridContainer" style="display: none;">
+                    <!-- 10 verified certificate cards generated here -->
                 </div>
             </div>
         </section>
 
+        <!-- Fullscreen Certificate Viewer Modal -->
+        <div class="cert-modal-overlay" id="certModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="cert-modal-dialog">
+                <button class="cert-modal-close" id="certModalClose" aria-label="Close Certificate Preview" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="cert-document-frame">
+                    <div class="cert-modal-brand-badge" id="modalBrandBadge">
+                        <i class="fas fa-laptop-code"></i> SJCET PALAI &nbsp;•&nbsp; 35-Hour Intensive Course
+                    </div>
+                    <div class="cert-modal-presented">THIS CREDENTIAL IS PROUDLY CONFERRED TO</div>
+                    <div class="cert-modal-recipient">Binil Vincent</div>
+                    <div class="cert-modal-for">in recognition of excellence and successful completion of</div>
+                    <div class="cert-modal-title" id="modalTitle">Essential Computer Skills: Office Tools & IT Fundamentals</div>
+                    <p class="cert-modal-desc" id="modalDesc">35-hour intensive foundational program covering workplace computing essentials, office productivity toolsets, digital data management, and fundamental information technology principles.</p>
+
+                    <div class="cert-modal-meta-grid">
+                        <div class="cert-meta-item">
+                            <div class="cert-meta-item-label">Issue Date</div>
+                            <div class="cert-meta-item-value" id="modalDate">2025</div>
+                        </div>
+                        <div class="cert-meta-item">
+                            <div class="cert-meta-item-label">Verification ID</div>
+                            <div class="cert-meta-item-value" id="modalId" style="font-family: var(--font-mono, monospace);">SJCET-ECS-2025-01</div>
+                        </div>
+                        <div class="cert-meta-item">
+                            <div class="cert-meta-item-label">Issuing Authority</div>
+                            <div class="cert-meta-item-value" id="modalIssuer">St. Joseph's College of Engineering and Technology</div>
+                        </div>
+                        <div class="cert-meta-item">
+                            <div class="cert-meta-item-label">Credential Type</div>
+                            <div class="cert-meta-item-value" id="modalType" style="color: var(--modal-accent, #00f2fe);">35-HOUR INTENSIVE COURSE</div>
+                        </div>
+                        <div class="cert-meta-item">
+                            <div class="cert-meta-item-label">Credential Status</div>
+                            <div class="cert-meta-item-value" style="color: #22c55e;"><i class="fas fa-circle-check"></i> Authenticated</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-modal-actions">
+                        <div class="cert-modal-nav-btns">
+                            <button class="cert-modal-nav-btn" id="modalPrev" title="Previous Credential" type="button">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <button class="cert-modal-nav-btn" id="modalNext" title="Next Credential" type="button">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="cert-modal-link-btns">
+                            <button class="btn-modal-copy-id" id="modalCopyId" type="button">
+                                <i class="fas fa-copy"></i> Copy ID
+                            </button>
+                            <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-modal-open-drive" id="modalOpenDrive">
+                                <i class="fas fa-arrow-up-right-from-square"></i> Open Official Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copy Confirmation Toast -->
+        <div class="cert-copy-toast" id="certCopyToast">
+            <i class="fas fa-check-circle" style="color: #00f2fe;"></i> Certificate ID copied to clipboard!
+        </div>
+
         <!-- Contact Section -->
         <section id="contact">
             <div class="section-container">
-                <h2 class="section-title">Contact</h2>
+                <h2 class="section-title">Get In <span class="title-highlight">Touch</span></h2>
                 <div class="contact-container">
                     <div class="contact-info">
                         <div class="contact-card">
@@ -615,7 +783,153 @@
         </div>
     </div>
 
+    <!-- Seat-Sync System Architecture & Engineering Breakdown Modal -->
+    <div class="seatsync-modal-overlay" id="seatSyncModal" role="dialog" aria-modal="true" aria-labelledby="seatSyncModalTitle">
+        <div class="seatsync-modal-dialog">
+            <!-- Modal Header -->
+            <div class="seatsync-modal-header">
+                <div class="seatsync-modal-title-group">
+                    <h2 id="seatSyncModalTitle"><i class="fas fa-chair"></i> SEAT-SYNC ARCHITECTURE & SPECS</h2>
+                    <p class="seatsync-modal-sub">
+                        <span>Smart Academic Seating & Examination Integrity Management System</span>
+                        <span>•</span>
+                        <span class="sjcet-tag"><i class="fas fa-university"></i> Custom-Built for SJCET Palai</span>
+                    </p>
+                </div>
+                <button type="button" class="seatsync-modal-close-btn" id="seatSyncModalClose" aria-label="Close Modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="seatsync-modal-body">
+                <!-- Status Badges -->
+                <div class="seatsync-modal-badges">
+                    <span class="seatsync-mbadge v2"><i class="fas fa-code-branch"></i> Version 2.0.0</span>
+                    <span class="seatsync-mbadge prod"><i class="fas fa-check-circle"></i> Production Ready</span>
+                    <span class="seatsync-mbadge sjcet"><i class="fas fa-building-columns"></i> SJCET Palai Implementation</span>
+                    <span class="seatsync-mbadge license"><i class="fas fa-scale-balanced"></i> MIT License</span>
+                </div>
+
+                <!-- Section: System Overview & SJCET Problem Statement -->
+                <div class="seatsync-section-block">
+                    <h3><i class="fas fa-bullseye"></i> SJCET Palai Operational Problem & Proposed Solution</h3>
+                    <p>
+                        In institutions like <strong>St. Joseph's College of Engineering and Technology (SJCET Palai)</strong>, traditional examination seating relied on manual spreadsheet compilation. This process consumed hours of administrative work, led to human data entry duplicates, created chaotic physical notice board crowding before exams, and frequently seated students from the same department adjacent to each other.
+                    </p>
+                    <p>
+                        <strong>Seat-Sync</strong> completely automates this workflow into a single unified platform. It reduces multi-hall seat distribution time from hours to under <strong>800 milliseconds</strong>, eliminates student notice board crowding via real-time WebSocket push notifications, and mathematically guarantees zero same-department adjacency.
+                    </p>
+                </div>
+
+                <!-- Section: Algorithm Storyboard -->
+                <div class="seatsync-section-block">
+                    <h3><i class="fas fa-microchip"></i> Dual-Pool Interleaving Matchmaking Engine</h3>
+                    <p>
+                        Seat-Sync partitions incoming student rosters into distinct departmental pools and executes a dual-pool interleaving matchmaking algorithm. For every bench pair in every exam hall:
+                        <code>Department(Seat_Left) ≠ Department(Seat_Right)</code>
+                    </p>
+
+                    <div class="seatsync-algorithm-box">
+                        <div class="algorithm-header-label">
+                            <span><i class="fas fa-diagram-project"></i> Live Anti-Collusion Seating Storyboard</span>
+                            <span>SJCET Exam Hall 101</span>
+                        </div>
+                        <div class="algorithm-bench-grid">
+                            <div class="bench-row-card">
+                                <div class="seat-slot pool-a">
+                                    <span class="slot-title">POOL A • CSE (KTU)</span>
+                                    <span class="slot-detail">Bench 01 - Left: SJC24CS001</span>
+                                </div>
+                                <div class="bench-interleave-indicator">
+                                    <i class="fas fa-shield-alt"></i> Anti-Collusion Gap
+                                </div>
+                                <div class="seat-slot pool-b">
+                                    <span class="slot-title">POOL B • ECE (KTU)</span>
+                                    <span class="slot-detail">Bench 01 - Right: SJC24EC001</span>
+                                </div>
+                            </div>
+
+                            <div class="bench-row-card">
+                                <div class="seat-slot pool-a">
+                                    <span class="slot-title">POOL A • CSE (KTU)</span>
+                                    <span class="slot-detail">Bench 02 - Left: SJC24CS002</span>
+                                </div>
+                                <div class="bench-interleave-indicator">
+                                    <i class="fas fa-shield-alt"></i> Anti-Collusion Gap
+                                </div>
+                                <div class="seat-slot pool-b">
+                                    <span class="slot-title">POOL B • ECE (KTU)</span>
+                                    <span class="slot-detail">Bench 02 - Right: SJC24EC002</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Examination Modules -->
+                <div class="seatsync-section-block">
+                    <h3><i class="fas fa-folder-tree"></i> SJCET Academic Examination Modules</h3>
+                    <div class="seatsync-portals-grid" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="portal-mini-card">
+                            <h4><i class="fas fa-university"></i> University End-Semester Module</h4>
+                            <p>Campus-wide, multi-hall simultaneous seating execution for KTU end-semester exams with automatic hall capacity throttling and invigilator rosters.</p>
+                        </div>
+                        <div class="portal-mini-card">
+                            <h4><i class="fas fa-pencil"></i> Internal Series Module</h4>
+                            <p>Department-level series and midterm exams with subject-wise interleaving, rapid room reallocation, and automated faculty invigilation duty charts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Role-Based Portals -->
+                <div class="seatsync-section-block">
+                    <h3><i class="fas fa-users-viewfinder"></i> Unified 3-Tier Portal Architecture</h3>
+                    <div class="seatsync-portals-grid">
+                        <div class="portal-mini-card">
+                            <h4><i class="fas fa-user-shield"></i> Admin Portal</h4>
+                            <p>Room/hall layout configs, CSV batch student ingestion, one-click &lt;800ms allocation, master PDF report export, invigilator duty assignments.</p>
+                        </div>
+                        <div class="portal-mini-card">
+                            <h4><i class="fas fa-user-graduate"></i> Student Portal</h4>
+                            <p>Instant mobile seat lookup (Room, Bench, Seat position), real-time exam schedule, live countdown, and direct hall floor directions.</p>
+                        </div>
+                        <div class="portal-mini-card">
+                            <h4><i class="fas fa-chalkboard-user"></i> Invigilator Portal</h4>
+                            <p>Digital hall seating chart, instant QR / roll check-in, real-time student attendance verification, and malpractice logging.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Technical Architecture -->
+                <div class="seatsync-section-block">
+                    <h3><i class="fas fa-server"></i> Technical Stack & Integrity Guarantees</h3>
+                    <p>
+                        Built with a modern reactive frontend in <strong>React 19 & TypeScript</strong>, powered by an asynchronous <strong>Express 5 & Node.js</strong> micro-backend. Real-time updates utilize a <strong>Socket.io</strong> event bus, and database durability is enforced via <strong>Sequelize ORM v6</strong> running on <strong>MySQL</strong> with SQLite fallback. Strict foreign-key referential integrity ensures zero orphan allocations or duplicate seats.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="seatsync-modal-footer">
+                <div class="footer-meta">
+                    <i class="fas fa-code"></i> GitHub: bvthz5/Seat-Sync
+                </div>
+                <div class="seatsync-modal-footer-actions">
+                    <button type="button" class="btn-seatsync-specs" id="seatSyncModalFooterClose" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #cbd5e1;">
+                        Close
+                    </button>
+                    <a href="https://github.com/bvthz5/Seat-Sync.git" target="_blank" rel="noopener noreferrer" class="btn-seatsync-github">
+                        <i class="fab fa-github"></i> Open on GitHub ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/seatsync.js"></script>
     <script src="js/nik-chatbot.js"></script>
+    <script src="js/certificates.js"></script>
     <script src="js/script.js"></script>
 </body>
 

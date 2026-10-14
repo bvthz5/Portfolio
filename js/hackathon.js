@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
         opacity: 0,
         ease: 'power2.out'
     });
+
+
     
     // Gallery Items Animation
     gsap.from('.gallery-item', {

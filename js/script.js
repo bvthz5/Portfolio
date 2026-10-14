@@ -349,8 +349,14 @@ function initGSAPLazy() {
         .from('.home-content h1', { duration: 0.6, y: 20, opacity: 0 })
         .from('.home-content h2', { duration: 0.5, y: 15, opacity: 0 }, "-=0.3")
         .from('.home-content p', { duration: 0.5, y: 15, opacity: 0 }, "-=0.2")
-        .from('.btn-container', { duration: 0.5, y: 15, opacity: 0 }, "-=0.2")
-        .from('.profile-img', { duration: 0.6, scale: 0.9, opacity: 0 }, "-=0.3");
+        .from('.btn-container', { duration: 0.5, y: 15, opacity: 0 }, "-=0.2");
+
+    // Ensure profile image is cleared of any stale inline styles
+    const profileImg = document.querySelector('.profile-img');
+    if (profileImg) {
+        profileImg.style.opacity = '1';
+        profileImg.style.visibility = 'visible';
+    }
 
     // Step 2: Defer ScrollTrigger setup
     setTimeout(() => initScrollTriggers(), 100);

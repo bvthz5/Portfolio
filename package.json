@@ -1,0 +1,12 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio showcasing projects, skills, and experiences with interactive features.",
+  "scripts": {
+    "start": "npx serve -l 3000 --no-clipboard .",
+    "dev": "npx serve -l 3000 --no-clipboard ."
+  },
+  "keywords": [],
+  "author": "Binil Vincent",
+  "license": "MIT"
+}
