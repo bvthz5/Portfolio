@@ -517,6 +517,12 @@
         dom.showcaseCard.style.setProperty('--active-theme-glow', cert.themeGlow);
         dom.showcaseCard.style.setProperty('--active-theme-glow-inner', cert.themeGlowInner);
 
+        if (dom.stageWrapper) {
+            dom.stageWrapper.style.setProperty('--active-theme-color', cert.themeColor);
+            dom.stageWrapper.style.setProperty('--active-theme-glow', cert.themeGlow);
+            dom.stageWrapper.style.setProperty('--active-theme-glow-inner', cert.themeGlowInner);
+        }
+
         // Update Content
         dom.brandLogo.innerHTML = `${cert.issuer}<span class="cert-brand-dot" id="certBrandDot">.</span>`;
         dom.issueDate.textContent = cert.date;

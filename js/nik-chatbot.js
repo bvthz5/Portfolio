@@ -9,8 +9,8 @@ class NikChatbot {
         this.knowledgeBase = {
             personal: {
                 name: "Binil Vincent",
-                role: "Software Engineer",
-                description: "Dedicated Software Engineer with hands-on experience in developing scalable web applications and robust backend systems. Skilled in writing clean, maintainable code to ensure long-term efficiency and ease of debugging.",
+                role: "Dedicated DevOps Engineer & Full-Stack Developer",
+                description: "Dedicated DevOps Engineer with deep Full-Stack development expertise. Specializing in Linux, Docker, Kubernetes orchestration, CI/CD automation, Infrastructure as Code with Terraform & Ansible, multi-cloud deployments across Azure, AWS, and GCP, and real-time observability with Prometheus, Grafana, and Netdata. Proficient in engineering distributed services using .NET Core, Python, Node.js, and React.",
                 location: "Kerala, India",
                 education: [
                     {
@@ -44,18 +44,20 @@ class NikChatbot {
                 ]
             },
             skills: {
-                technologies: ["ASP .NET Core", "Node JS", "Spring Boot", "React JS"],
-                databases: ["MySQL", "SQL Server"],
-                tools: ["GitHub", "GitLab", "xUnit", "Jest", "Agile", "Waterfall", "Windows", "Linux"],
-                softSkills: ["Observation", "Communication", "Multi-tasking", "Decision Making"]
+                devops: ["Linux", "Docker", "Kubernetes", "CI/CD Pipelines", "Microsoft Azure", "AWS", "Google Cloud (GCP)", "Terraform", "Ansible"],
+                monitoring: ["Prometheus", "Grafana", "Netdata", "Alertmanager", "System Diagnostics", "Log Aggregation"],
+                backend: ["ASP .NET Core", "C#", "Python", "Node.js", "Express.js", "RESTful APIs", "Microservices"],
+                frontend: ["React.js", "React 19", "TypeScript", "JavaScript", "Socket.io"],
+                databases: ["MySQL", "SQL Server", "PostgreSQL", "MongoDB", "Redis"],
+                tools: ["GitHub", "GitLab", "Bash Scripting", "Helm", "Nginx", "xUnit", "Jest", "Agile / Scrum"]
             },
             experience: [
                 {
-                    role: "Associate Software Engineer",
+                    role: "Associate Software & DevOps Engineer",
                     company: "Innovature Software Labs",
                     period: "2022 - 2023",
                     location: "Kakkanad, Kochi",
-                    description: "Leading software development projects and engineering teams. Designing, developing, and maintaining software systems while collaborating with project managers to establish specifications."
+                    description: "Engineered scalable cloud backend services and microservices, automated CI/CD deployment pipelines, containerized applications using Docker, and managed Linux hosting environments."
                 }
             ],
             projects: [
@@ -301,12 +303,12 @@ class NikChatbot {
     
     getAboutResponse() {
         const { name, role, description } = this.knowledgeBase.personal;
-        return `FILE LOCATED: ${name} is a ${role}.\n\n${description}\n\nHe has worked as an Associate Software Engineer at Innovature Software Labs in Kakkanad, Kochi (2022 - 2023). He holds command over full-stack systems with strong expertise in .NET Core, React.js, Node.js, and Spring Boot.`;
+        return `FILE LOCATED: ${name} is a ${role}.\n\n${description}\n\nHe has worked as an Associate Software & DevOps Engineer at Innovature Software Labs in Kakkanad, Kochi (2022 - 2023). He specializes in cloud architecture, CI/CD pipelines, Docker, Kubernetes, Terraform, Ansible, Prometheus, Grafana, Netdata, alongside full-stack engineering with .NET Core, Python, Node.js, and React.`;
     }
     
     getSkillsResponse() {
-        const { technologies, databases, tools, softSkills } = this.knowledgeBase.skills;
-        return `Binil has a comprehensive skill set:\n\n💻 Technologies: ${technologies.join(', ')}\n\n🗄️ Databases: ${databases.join(', ')}\n\n🛠️ Tools: ${tools.slice(0, 6).join(', ')}\n\n👥 Soft Skills: ${softSkills.join(', ')}\n\nHe's particularly strong in full-stack development and follows clean code principles!`;
+        const { devops, monitoring, backend, frontend, databases, tools } = this.knowledgeBase.skills;
+        return `Binil's technical engineering stack:\n\n🚀 DevOps & Cloud: ${devops.join(', ')}\n\n📊 Monitoring & SRE: ${monitoring.join(', ')}\n\n⚙️ Backend: ${backend.join(', ')}\n\n💻 Frontend: ${frontend.join(', ')}\n\n🗄️ Databases: ${databases.join(', ')}\n\n🛠️ Tooling & DevSecOps: ${tools.join(', ')}\n\nHe is dedicated to DevOps automation and rock-solid full-stack architectures!`;
     }
     
     getExperienceResponse() {

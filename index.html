@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binil Vincent - Software Engineer</title>
+    <title>Binil Vincent - Dedicated DevOps Engineer &amp; Full-Stack Developer</title>
+    <meta name="description"
+        content="Binil Vincent - Dedicated DevOps Engineer &amp; Full-Stack Developer specializing in Linux, Docker, Kubernetes, CI/CD, Azure, AWS, GCP, Terraform, Ansible, Prometheus, Grafana, Netdata, .NET Core, Python, Node, and React.">
+    <meta name="keywords"
+        content="DevOps Engineer, Cloud Architect, Linux, Docker, Kubernetes, CI/CD, Azure, AWS, GCP, Terraform, Ansible, Prometheus, Grafana, Netdata, Full Stack Developer, .NET Core, Python, Node, React">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👨‍💻</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,9 +17,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=1.2">
-    <link rel="stylesheet" href="css/theme-cyber.css">
-    <link rel="stylesheet" href="css/certificates-showcase.css">
+    <link rel="stylesheet" href="css/styles.css?v=2.0">
+    <link rel="stylesheet" href="css/theme-cyber.css?v=2.0">
+    <link rel="stylesheet" href="css/certificates-showcase.css?v=2.0">
     <link rel="stylesheet" href="css/seatsync.css">
     <link rel="stylesheet" href="css/nik-chatbot.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -87,15 +91,30 @@
         <!-- Home Section -->
         <section id="home">
             <div class="home-content">
-                <div class="hero-status-badge">
-                    <span class="status-pulse-dot"></span> Available for Opportunities
-                </div>
                 <h1>Binil Vincent</h1>
-                <h2>Software Engineer <span class="hero-role-accent">& Full-Stack Developer</span></h2>
-                <p>Dedicated Software Engineer specializing in scalable full-stack applications, distributed backend systems, and clean architectural design. Experienced in .NET Core, React, Node.js, and cloud ecosystems.</p>
+                <div class="hero-role-block">
+                    <!-- Main Role Headline (DevOps Engineer & Full-Stack Engineer -> DevOps Engineer -> Full-Stack Engineer) -->
+                    <h2 class="hero-main-role" id="heroMainRole">
+                        <span id="roleTitleText" class="role-title-text role-combined">DevOps Engineer &amp; Full-Stack
+                            Engineer</span><span class="role-title-cursor" id="roleTitleCursor">_</span>
+                    </h2>
+
+                    <!-- Below: Dynamic Written and Vanish Tech Focus Line -->
+                    <div class="hero-spec-line" id="heroSpecLine">
+                        <span class="spec-symbol" id="specSymbol">›</span>
+                        <span id="consoleTypingText" class="spec-typing-text">Automated Cloud Infrastructure &amp;
+                            Distributed Systems</span><span class="spec-cursor" id="specCursor">|</span>
+                    </div>
+                </div>
+                <p>Dedicated DevOps Engineer with deep Full-Stack development expertise. Architecting automated CI/CD
+                    pipelines, container orchestration with Docker &amp; Kubernetes, Infrastructure as Code with
+                    Terraform &amp; Ansible, and multi-cloud solutions across Azure, AWS, and GCP. Delivering
+                    high-availability observability with Prometheus, Grafana, and Netdata, while engineering resilient
+                    backend microservices in .NET Core, Python, Node.js, and React.</p>
                 <div class="btn-container">
                     <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
-                    <a href="#" class="btn btn-secondary" id="download-cv"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="#" class="btn btn-secondary" id="download-cv"><i class="fas fa-download"></i> Download
+                        CV</a>
                 </div>
             </div>
             <div class="profile-img-container">
@@ -110,7 +129,13 @@
         <!-- About Section -->
         <section id="about">
             <div class="section-container">
-                <h2 class="section-title">About <span class="title-highlight">Me</span></h2>
+                <div class="section-header-block">
+                    <span class="section-eyebrow"><i class="fas fa-user-astronaut"></i> BACKGROUND &amp;
+                        PHILOSOPHY</span>
+                    <h2 class="section-title">About <span class="title-highlight">Me</span></h2>
+                    <p class="section-subtitle">Dedicated DevOps Engineer with deep Full-Stack architecture and
+                        automation expertise.</p>
+                </div>
                 <div class="about-container">
                     <div class="about-img-container">
                         <div class="about-img-slideshow">
@@ -122,19 +147,48 @@
                         </div>
                     </div>
                     <div class="about-content">
-                        <h3>Software Engineer</h3>
-                        <p style="text-align: justify;">I'm a passionate Software Engineer with 1 year of professional
-                            experience specializing in full-stack web development. I have a strong foundation in
-                            creating scalable applications using modern technologies like .NET Core, Node.js, React.js,
-                            and Spring Boot.</p>
-                        <p style="text-align: justify;">My approach to software development focuses on writing clean,
-                            maintainable code that is efficient and easy to debug. I enjoy solving complex problems and
-                            continuously learning new technologies to stay at the forefront of the industry.</p>
-                        <p style="text-align: justify;">I thrive in both collaborative team environments and independent
-                            work settings, adapting to organizational needs whether working remotely or on-site. My goal
-                            is to build software that not only meets requirements but exceeds expectations in
-                            performance and user experience.</p>
-                        <p>📍 Based in Koodalloor, Kottayam, Kerala</p>
+                        <div class="about-role-headline">
+                            <span class="about-role-badge">ENGINEERING PHILOSOPHY</span>
+                            <h3>Bridging Infrastructure Automation with Resilient Software Systems</h3>
+                        </div>
+                        <p class="about-lead">I am a dedicated <strong>DevOps Engineer</strong> and <strong>Full-Stack Developer</strong> focused on building reliable cloud infrastructure, automated delivery pipelines, and scalable backend services. With core competencies across Linux systems, container orchestration (Docker &amp; Kubernetes), and Infrastructure as Code (Terraform &amp; Ansible), I design automated environments optimized for uptime, observability, and developer velocity.</p>
+
+                        <div class="about-pillars-grid">
+                            <div class="about-pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-cloud"></i></div>
+                                <div class="pillar-info">
+                                    <h4>Multi-Cloud Architecture</h4>
+                                    <p>Automated provisioning on AWS, Azure &amp; GCP using Terraform IaC and Ansible</p>
+                                </div>
+                            </div>
+                            <div class="about-pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-cubes"></i></div>
+                                <div class="pillar-info">
+                                    <h4>Containerization &amp; SRE</h4>
+                                    <p>Docker &amp; Kubernetes orchestration with Prometheus and Grafana observability</p>
+                                </div>
+                            </div>
+                            <div class="about-pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-code-branch"></i></div>
+                                <div class="pillar-info">
+                                    <h4>CI/CD &amp; GitOps</h4>
+                                    <p>Streamlined build, test, and zero-downtime automated deployment pipelines</p>
+                                </div>
+                            </div>
+                            <div class="about-pillar-card">
+                                <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+                                <div class="pillar-info">
+                                    <h4>Full-Stack Microservices</h4>
+                                    <p>High-throughput APIs in .NET Core, Python, and Node.js with modern React frontends</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-quick-tags">
+                            <span class="about-tag"><i class="fas fa-map-marker-alt"></i> Koodalloor, Kottayam, Kerala</span>
+                            <span class="about-tag"><i class="fas fa-briefcase"></i> Open for DevOps &amp; Engineering Roles</span>
+                            <span class="about-tag"><i class="fas fa-graduation-cap"></i> MCA Candidate (KTU Kerala)</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,23 +197,32 @@
         <!-- Work Experience Section -->
         <section id="work">
             <div class="section-container">
-                <h2 class="section-title">Work <span class="title-highlight">Experience</span></h2>
+                <div class="section-header-block">
+                    <span class="section-eyebrow"><i class="fas fa-briefcase"></i> CAREER MILESTONES</span>
+                    <h2 class="section-title">Work <span class="title-highlight">Experience</span></h2>
+                    <p class="section-subtitle">Engineering high-availability cloud services and automated deployment
+                        pipelines.</p>
+                </div>
                 <div class="work-timeline">
-                    <!-- Milestone: Associate Software Engineer (2022 - 2023) -> 2023 -->
+                    <!-- Milestone: Associate Software & DevOps Engineer (2022 - 2023) -> 2023 -->
                     <div class="work-milestone milestone-left">
                         <div class="milestone-card">
                             <div class="milestone-badge">2022 - 2023</div>
-                            <h3 class="milestone-title">Associate Software Engineer</h3>
+                            <h3 class="milestone-title">Associate Software &amp; DevOps Engineer</h3>
                             <h4 class="milestone-institution">Innovature Software Labs</h4>
                             <div class="milestone-meta">
                                 <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> Kakkanad, Kochi</span>
                                 <span class="meta-tag"><i class="fas fa-briefcase"></i> Full-time</span>
                             </div>
                             <ul class="milestone-list">
-                                <li>Leading software development projects and engineering teams</li>
-                                <li>Designing, developing, and maintaining high-performance software systems</li>
-                                <li>Collaborating with project managers, designers, and stakeholders to establish technical specifications</li>
-                                <li>Effectively communicating across cross-functional teams to ensure clean, maintainable code</li>
+                                <li>Engineered high-performance software systems and cloud backend services using .NET
+                                    Core and modern web stacks</li>
+                                <li>Automated build, test, and deployment workflows with CI/CD pipelines to accelerate
+                                    release velocity</li>
+                                <li>Containerized application microservices with Docker to ensure environment parity
+                                    across staging and production</li>
+                                <li>Managed Linux hosting environments, monitored system health, and collaborated with
+                                    cross-functional engineering teams</li>
                             </ul>
                         </div>
                         <div class="milestone-node">
@@ -173,44 +236,115 @@
         <!-- Skills Section -->
         <section id="skills">
             <div class="section-container">
-                <h2 class="section-title">Technical <span class="title-highlight">Skills</span></h2>
+                <div class="section-header-block">
+                    <span class="section-eyebrow"><i class="fas fa-microchip"></i> EXPERTISE &amp; TECH STACK</span>
+                    <h2 class="section-title">Technical <span class="title-highlight">Skills</span></h2>
+                    <p class="section-subtitle">Core DevOps infrastructure automation, SRE observability, and full-stack
+                        engineering toolsets.</p>
+                </div>
                 <div class="skills-container">
-                    <div class="skill-card">
-                        <h3><i class="fas fa-code"></i> Technologies</h3>
+                    <!-- Card 1: DevOps & Cloud Infrastructure (Featured Core Focus) -->
+                    <div class="skill-card featured-devops">
+                        <div class="skill-card-badge-row">
+                            <span class="skill-focus-badge"><i class="fas fa-shield-alt"></i> Core Focus</span>
+                        </div>
+                        <h3><i class="fas fa-cloud"></i> DevOps &amp; Cloud</h3>
                         <div class="skill-items">
-                            <span class="skill-item">ASP .NET Core</span>
-                            <span class="skill-item">Node JS</span>
-                            <span class="skill-item">Spring Boot</span>
-                            <span class="skill-item">React JS</span>
+                            <span class="skill-item">Linux (Ubuntu / RHEL)</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Kubernetes (K8s)</span>
+                            <span class="skill-item">CI/CD Pipelines</span>
+                            <span class="skill-item">Microsoft Azure</span>
+                            <span class="skill-item">AWS</span>
+                            <span class="skill-item">Google Cloud (GCP)</span>
+                            <span class="skill-item">Terraform</span>
+                            <span class="skill-item">Ansible</span>
                         </div>
                     </div>
+
+                    <!-- Card 2: Observability & Monitoring (Featured SRE Focus) -->
+                    <div class="skill-card featured-devops">
+                        <div class="skill-card-badge-row">
+                            <span class="skill-focus-badge"><i class="fas fa-chart-pie"></i> SRE &amp; Metrics</span>
+                        </div>
+                        <h3><i class="fas fa-chart-line"></i> Monitoring &amp; Observability</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Prometheus</span>
+                            <span class="skill-item">Grafana</span>
+                            <span class="skill-item">Netdata</span>
+                            <span class="skill-item">Alertmanager</span>
+                            <span class="skill-item">System Diagnostics</span>
+                            <span class="skill-item">Log Aggregation</span>
+                            <span class="skill-item">Uptime &amp; SLOs</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Backend & Full-Stack -->
                     <div class="skill-card">
-                        <h3><i class="fas fa-database"></i> Databases</h3>
+                        <div class="skill-card-badge-row">
+                            <span class="skill-sub-badge"><i class="fas fa-server"></i> Backend</span>
+                        </div>
+                        <h3><i class="fas fa-server"></i> Backend Engineering</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">ASP .NET Core</span>
+                            <span class="skill-item">C#</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Node.js</span>
+                            <span class="skill-item">Express.js</span>
+                            <span class="skill-item">RESTful APIs</span>
+                            <span class="skill-item">Microservices</span>
+                            <span class="skill-item">Spring Boot</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Modern Frontend -->
+                    <div class="skill-card">
+                        <div class="skill-card-badge-row">
+                            <span class="skill-sub-badge"><i class="fas fa-laptop-code"></i> Frontend</span>
+                        </div>
+                        <h3><i class="fas fa-laptop-code"></i> Frontend &amp; Web</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">React.js (React 19)</span>
+                            <span class="skill-item">TypeScript</span>
+                            <span class="skill-item">JavaScript (ES6+)</span>
+                            <span class="skill-item">HTML5 / Cyber CSS</span>
+                            <span class="skill-item">Socket.io</span>
+                            <span class="skill-item">State Management</span>
+                            <span class="skill-item">Responsive UI</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Databases & Storage -->
+                    <div class="skill-card">
+                        <div class="skill-card-badge-row">
+                            <span class="skill-sub-badge"><i class="fas fa-database"></i> Database</span>
+                        </div>
+                        <h3><i class="fas fa-database"></i> Databases &amp; Storage</h3>
                         <div class="skill-items">
                             <span class="skill-item">MySQL</span>
                             <span class="skill-item">SQL Server</span>
+                            <span class="skill-item">PostgreSQL</span>
+                            <span class="skill-item">MongoDB</span>
+                            <span class="skill-item">Redis</span>
+                            <span class="skill-item">Entity Framework</span>
+                            <span class="skill-item">Sequelize ORM</span>
                         </div>
                     </div>
+
+                    <!-- Card 6: DevSecOps, Tools & SRE -->
                     <div class="skill-card">
-                        <h3><i class="fas fa-tools"></i> Tools & Others</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">GitHub</span>
-                            <span class="skill-item">GitLab</span>
-                            <span class="skill-item">xUnit</span>
-                            <span class="skill-item">Jest</span>
-                            <span class="skill-item">Agile</span>
-                            <span class="skill-item">Waterfall</span>
-                            <span class="skill-item">Windows</span>
-                            <span class="skill-item">Linux</span>
+                        <div class="skill-card-badge-row">
+                            <span class="skill-sub-badge"><i class="fas fa-terminal"></i> Tooling</span>
                         </div>
-                    </div>
-                    <div class="skill-card">
-                        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                        <h3><i class="fas fa-terminal"></i> Automation &amp; Tooling</h3>
                         <div class="skill-items">
-                            <span class="skill-item">Observation</span>
-                            <span class="skill-item">Communication</span>
-                            <span class="skill-item">Multi-tasking</span>
-                            <span class="skill-item">Decision Making</span>
+                            <span class="skill-item">Git / GitHub / GitLab</span>
+                            <span class="skill-item">Bash Scripting</span>
+                            <span class="skill-item">Helm Charts</span>
+                            <span class="skill-item">Nginx Reverse Proxy</span>
+                            <span class="skill-item">xUnit &amp; Jest</span>
+                            <span class="skill-item">Agile &amp; Scrum</span>
+                            <span class="skill-item">Zero-Downtime Deploy</span>
                         </div>
                     </div>
                 </div>
@@ -220,19 +354,31 @@
         <!-- Education Section -->
         <section id="education">
             <div class="section-container">
-                <h2 class="section-title">My <span class="title-highlight">Academic Foundation</span></h2>
-                <div class="education-timeline">
+                <div class="section-header-block">
+                    <span class="section-eyebrow"><i class="fas fa-graduation-cap"></i> FORMAL EDUCATION</span>
+                    <h2 class="section-title">Academic <span class="title-highlight">Foundation</span></h2>
+                    <p class="section-subtitle">Master of Computer Applications candidate and foundational computer
+                        science qualifications.</p>
+                </div>
+                <div class="education-timeline" id="educationTimeline">
+                    <!-- Dynamic Scroll Progress Beam & Traveling Energy Head -->
+                    <div class="timeline-scroll-progress" id="educationProgressBeam">
+                        <div class="timeline-progress-head"></div>
+                    </div>
+
                     <!-- Milestone 1: MCA (2024 - 2026) -> 2026 -->
                     <div class="education-milestone milestone-left">
                         <div class="milestone-card">
                             <div class="milestone-badge">2024 - 2026</div>
                             <h3 class="milestone-title">Master of Computer Applications (MCA)</h3>
-                            <h4 class="milestone-institution">St. Joseph's College of Engineering & Technology, Pala</h4>
+                            <h4 class="milestone-institution">St. Joseph's College of Engineering & Technology, Pala
+                            </h4>
                             <div class="milestone-meta">
                                 <span class="meta-tag"><i class="fas fa-university"></i> KTU, Kerala</span>
                             </div>
                             <p class="milestone-desc">
-                                Specializing in software development, data analytics, database management, and modern computing technologies.
+                                Specializing in software development, data analytics, database management, and modern
+                                computing technologies.
                             </p>
                         </div>
                         <div class="milestone-node">
@@ -247,10 +393,12 @@
                             <h3 class="milestone-title">Bachelor of Computer Applications (BCA)</h3>
                             <h4 class="milestone-institution">Mar Augusthinose College, Ramapuram</h4>
                             <div class="milestone-meta">
-                                <span class="meta-tag"><i class="fas fa-university"></i> Mahatma Gandhi University, Kottayam</span>
+                                <span class="meta-tag"><i class="fas fa-university"></i> Mahatma Gandhi University,
+                                    Kottayam</span>
                             </div>
                             <p class="milestone-desc">
-                                Built a strong foundation in programming, web development, databases, and computer science fundamentals.
+                                Built a strong foundation in programming, web development, databases, and computer
+                                science fundamentals.
                             </p>
                         </div>
                         <div class="milestone-node">
@@ -265,10 +413,12 @@
                             <h3 class="milestone-title">Higher Secondary Education (12th)</h3>
                             <h4 class="milestone-institution">Government Higher Secondary School, Kadappoor</h4>
                             <div class="milestone-meta">
-                                <span class="meta-tag"><i class="fas fa-graduation-cap"></i> Kerala Board of Higher Secondary Examination</span>
+                                <span class="meta-tag"><i class="fas fa-graduation-cap"></i> Kerala Board of Higher
+                                    Secondary Examination</span>
                             </div>
                             <p class="milestone-desc">
-                                Focused on computer science and science stream, strengthening analytical thinking, mathematics, and algorithmic problem-solving.
+                                Focused on computer science and science stream, strengthening analytical thinking,
+                                mathematics, and algorithmic problem-solving.
                             </p>
                         </div>
                         <div class="milestone-node">
@@ -283,10 +433,12 @@
                             <h3 class="milestone-title">Secondary School Education (10th)</h3>
                             <h4 class="milestone-institution">Holy Cross Higher Secondary School, Cherpunkal</h4>
                             <div class="milestone-meta">
-                                <span class="meta-tag"><i class="fas fa-school"></i> Kerala Board of Public Secondary Examination</span>
+                                <span class="meta-tag"><i class="fas fa-school"></i> Kerala Board of Public Secondary
+                                    Examination</span>
                             </div>
                             <p class="milestone-desc">
-                                Completed secondary education with strong academic distinction, establishing fundamental scientific and computational acumen.
+                                Completed secondary education with strong academic distinction, establishing fundamental
+                                scientific and computational acumen.
                             </p>
                         </div>
                         <div class="milestone-node">
@@ -300,20 +452,29 @@
         <!-- Projects Section -->
         <section id="projects">
             <div class="section-container">
-                <h2 class="section-title">Featured <span class="title-highlight">Projects</span></h2>
+                <div class="section-header-block">
+                    <span class="section-eyebrow"><i class="fas fa-layer-group"></i> PRODUCTION &amp; RESEARCH</span>
+                    <h2 class="section-title">Featured <span class="title-highlight">Projects</span></h2>
+                    <p class="section-subtitle">Real-world applications spanning automated cloud workflows,
+                        high-concurrency systems, and AI research.</p>
+                </div>
                 <div class="projects-container">
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%);">
+                        <div class="project-img">
                             <i class="fas fa-chair"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Seat-Sync</h3>
-                                <a href="https://github.com/bvthz5/Seat-Sync.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View Seat-Sync on GitHub">
+                                <a href="https://github.com/bvthz5/Seat-Sync.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-header-icon-link"
+                                    title="View Seat-Sync on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Smart exam seating platform custom-built for SJCET Palai. Features dual-pool interleaving to prevent malpractice, sub-second hall allocation, and real-time Socket.io seat notifications.</p>
+                            <p>Smart exam seating platform custom-built for SJCET Palai. Features dual-pool interleaving
+                                to prevent malpractice, sub-second hall allocation, and real-time Socket.io seat
+                                notifications.</p>
                             <div class="tech-stack">
                                 <span class="tech">React 19</span>
                                 <span class="tech">TypeScript</span>
@@ -325,17 +486,21 @@
                     </div>
 
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%);">
+                        <div class="project-img">
                             <i class="fas fa-home"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Real Estate - Web Application</h3>
-                                <a href="https://github.com/bvthz5/realestate.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View realestate on GitHub">
+                                <a href="https://github.com/bvthz5/realestate.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-header-icon-link"
+                                    title="View realestate on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Modern property marketplace built with .NET Core and React.js. Enables seamless property discovery, interactive listings, smart filtering, and direct buyer-renter engagement.</p>
+                            <p>Modern property marketplace built with .NET Core and React.js. Enables seamless property
+                                discovery, interactive listings, smart filtering, and direct buyer-renter engagement.
+                            </p>
                             <div class="tech-stack">
                                 <span class="tech">.NET Core</span>
                                 <span class="tech">React.js</span>
@@ -345,17 +510,21 @@
                     </div>
 
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #FF6584 0%, #FFB347 100%);">
+                        <div class="project-img">
                             <i class="fas fa-stethoscope"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Doctor Appointment Booking System</h3>
-                                <a href="https://github.com/bvthz5/doctor_appointment_booking.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View doctor_appointment_booking on GitHub">
+                                <a href="https://github.com/bvthz5/doctor_appointment_booking.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-header-icon-link"
+                                    title="View doctor_appointment_booking on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Full-stack healthcare booking platform using Node.js and React.js. Patients can explore specialists, inspect real-time clinic availability, and instantly reserve consultation slots.</p>
+                            <p>Full-stack healthcare booking platform using Node.js and React.js. Patients can explore
+                                specialists, inspect real-time clinic availability, and instantly reserve consultation
+                                slots.</p>
                             <div class="tech-stack">
                                 <span class="tech">Node.js</span>
                                 <span class="tech">React.js</span>
@@ -365,17 +534,21 @@
                     </div>
 
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #36D1DC 0%, #5D26C1 100%);">
+                        <div class="project-img">
                             <i class="fas fa-shopping-cart"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Marketplace - Web Application</h3>
-                                <a href="https://github.com/bvthz5/marketplace.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View marketplace on GitHub">
+                                <a href="https://github.com/bvthz5/marketplace.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-header-icon-link"
+                                    title="View marketplace on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Dynamic e-commerce marketplace built with .NET Core and React.js. Features modular catalog browsing, cart workflows, checkout, and integrated courier delivery tracking.</p>
+                            <p>Dynamic e-commerce marketplace built with .NET Core and React.js. Features modular
+                                catalog browsing, cart workflows, checkout, and integrated courier delivery tracking.
+                            </p>
                             <div class="tech-stack">
                                 <span class="tech">.NET Core</span>
                                 <span class="tech">React.js</span>
@@ -384,17 +557,21 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);">
+                        <div class="project-img">
                             <i class="fas fa-tint"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Smart Blood Connect</h3>
-                                <a href="https://github.com/bvthz5/Smart-Blood-Connect.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View Smart-Blood-Connect on GitHub">
+                                <a href="https://github.com/bvthz5/Smart-Blood-Connect.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-header-icon-link"
+                                    title="View Smart-Blood-Connect on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Automated blood bank network connecting donors and hospitals with React and Flask. Features ML-driven compatibility matching, emergency donor alerts, and secure JWT authentication.</p>
+                            <p>Automated blood bank network connecting donors and hospitals with React and Flask.
+                                Features ML-driven compatibility matching, emergency donor alerts, and secure JWT
+                                authentication.</p>
                             <div class="tech-stack">
                                 <span class="tech">React</span>
                                 <span class="tech">Flask</span>
@@ -405,44 +582,55 @@
                     </div>
 
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);">
+                        <div class="project-img">
                             <i class="fas fa-globe"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Exoplanet Detection System</h3>
                                 <div style="display: inline-flex; align-items: center; gap: 0.65rem;">
-                                    <a href="https://github.com/bvthz5/Nasa---Hunting_exoplanets.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View Nasa - Hunting exoplanets on GitHub">
+                                    <a href="https://github.com/bvthz5/Nasa---Hunting_exoplanets.git" target="_blank"
+                                        rel="noopener noreferrer" class="project-header-icon-link"
+                                        title="View Nasa - Hunting exoplanets on GitHub">
                                         <i class="fab fa-github"></i>
                                     </a>
-                                    <a href="hackathon-nasa.html#certificates" class="project-header-icon-link" title="View NASA Space Apps Hackathon Credentials">
+                                    <a href="hackathon-nasa.html#certificates" class="project-header-icon-link"
+                                        title="View NASA Space Apps Hackathon Credentials">
                                         <i class="fas fa-rocket"></i>
                                     </a>
                                 </div>
                             </div>
-                            <p>AI astronomical research tool built for the NASA Space Apps Challenge. Analyzes Kepler light-curve flux dips using machine learning to detect candidate exoplanetary transits.</p>
+                            <p>AI astronomical research tool built for the NASA Space Apps Challenge. Analyzes Kepler
+                                light-curve flux dips using machine learning to detect candidate exoplanetary transits.
+                            </p>
                             <div class="tech-stack">
                                 <span class="tech">Python</span>
                                 <span class="tech">Scikit-Learn</span>
                                 <span class="tech">Pandas</span>
                                 <span class="tech">ML</span>
-                                <a href="hackathon-nasa.html#certificates" class="tech tech-link" title="NASA Hackathon Details & Credentials"><i class="fas fa-award"></i> NASA Cert ↗</a>
+                                <a href="hackathon-nasa.html#certificates" class="tech tech-link"
+                                    title="NASA Hackathon Details & Credentials"><i class="fas fa-award"></i> NASA Cert
+                                    ↗</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #11998E 0%, #38EF7D 100%);">
+                        <div class="project-img">
                             <i class="fas fa-pills"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Pharmacy Management System</h3>
-                                <a href="https://github.com/bvthz5/pharmacy-management.git" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View pharmacy-management on GitHub">
+                                <a href="https://github.com/bvthz5/pharmacy-management.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-header-icon-link"
+                                    title="View pharmacy-management on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Inventory and dispensary platform built with Java and TypeScript. Streamlines prescription records, stock reorder alerts, supplier tracking, and pharmacy sales analytics.</p>
+                            <p>Inventory and dispensary platform built with Java and TypeScript. Streamlines
+                                prescription records, stock reorder alerts, supplier tracking, and pharmacy sales
+                                analytics.</p>
                             <div class="tech-stack">
                                 <span class="tech">Java</span>
                                 <span class="tech">TypeScript</span>
@@ -453,17 +641,19 @@
                     </div>
 
                     <div class="project-card">
-                        <div class="project-img" style="background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);">
+                        <div class="project-img">
                             <i class="fas fa-shopping-bag"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-header-row">
                                 <h3>Online Shopping System</h3>
-                                <a href="https://github.com/bvthz5" target="_blank" rel="noopener noreferrer" class="project-header-icon-link" title="View bvthz5 on GitHub">
+                                <a href="https://github.com/bvthz5" target="_blank" rel="noopener noreferrer"
+                                    class="project-header-icon-link" title="View bvthz5 on GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
-                            <p>Responsive web store featuring multi-category product catalogs, shopping cart sessions, payment gateways, and an administrative order management dashboard.</p>
+                            <p>Responsive web store featuring multi-category product catalogs, shopping cart sessions,
+                                payment gateways, and an administrative order management dashboard.</p>
                             <div class="tech-stack">
                                 <span class="tech">PHP</span>
                                 <span class="tech">MySQL</span>
@@ -481,9 +671,12 @@
             <div class="cert-section-inner">
                 <!-- Section Header -->
                 <div class="cert-showcase-header">
+                    <span class="section-eyebrow"><i class="fas fa-award"></i> VERIFIED ACCREDITATIONS</span>
                     <h2 class="cert-main-title">
-                        My <span class="cert-gradient-text">Certificates</span>
+                        Professional <span class="cert-gradient-text">Certifications</span>
                     </h2>
+                    <p class="section-subtitle" style="margin-bottom: 1.5rem;">Authentic industry credentials, intensive
+                        technical courses, and hackathon honors.</p>
                     <div class="cert-badges-row">
                         <button class="cert-pill-badge active" data-filter="all" type="button">
                             <i class="fas fa-graduation-cap"></i> 10 Verified Credentials
@@ -494,17 +687,20 @@
                         <button class="cert-pill-badge" data-filter="hackathon" type="button">
                             <i class="fas fa-trophy"></i> 5 Hackathons & Honors
                         </button>
-                        <a href="hackathon-nasa.html#certificates" class="cert-pill-badge cert-pill-nasa" title="Explore NASA Space Apps Hackathon Credentials & Project">
+                        <a href="hackathon-nasa.html#certificates" class="cert-pill-badge cert-pill-nasa"
+                            title="Explore NASA Space Apps Hackathon Credentials & Project">
                             <i class="fas fa-rocket"></i> NASA Space Apps Page ↗
                         </a>
                     </div>
                     <!-- View Mode Toggle: Spotlight Carousel vs All Cards Grid -->
                     <div class="cert-mode-switcher-row">
                         <div class="cert-view-toggle">
-                            <button class="cert-toggle-btn active" id="certViewShowcaseBtn" type="button" title="Interactive Spotlight Showcase">
+                            <button class="cert-toggle-btn active" id="certViewShowcaseBtn" type="button"
+                                title="Interactive Spotlight Showcase">
                                 <i class="fas fa-atom"></i> Spotlight Showcase
                             </button>
-                            <button class="cert-toggle-btn" id="certViewGridBtn" type="button" title="Display all 10 verified certificates in a grid">
+                            <button class="cert-toggle-btn" id="certViewGridBtn" type="button"
+                                title="Display all 10 verified certificates in a grid">
                                 <i class="fas fa-th-large"></i> All Cards Grid (10)
                             </button>
                         </div>
@@ -515,12 +711,14 @@
                 <div class="cert-stage-wrapper" id="certStageWrapper">
                     <div class="cert-nav-container">
                         <!-- Left Navigation Arrow -->
-                        <button class="cert-stage-arrow prev" id="certPrevArrow" aria-label="Previous Certificate" type="button">
+                        <button class="cert-stage-arrow prev" id="certPrevArrow" aria-label="Previous Certificate"
+                            type="button">
                             <i class="fas fa-chevron-left"></i>
                         </button>
 
                         <!-- The Showcase Card (Centerpiece) -->
-                        <div class="cert-showcase-card" id="certShowcaseCard" style="--active-theme-color: #00f2fe; --active-theme-glow: rgba(0, 242, 254, 0.42); --active-theme-glow-inner: rgba(0, 242, 254, 0.12);">
+                        <div class="cert-showcase-card" id="certShowcaseCard"
+                            style="--active-theme-color: #00f2fe; --active-theme-glow: rgba(0, 242, 254, 0.42); --active-theme-glow-inner: rgba(0, 242, 254, 0.12);">
                             <div class="cert-card-content">
                                 <!-- Top Bar -->
                                 <div class="cert-card-topbar">
@@ -538,11 +736,15 @@
 
                                 <!-- Main Body -->
                                 <div class="cert-card-main">
-                                    <div class="cert-credential-subtitle" id="certCredentialSubtitle">CREDENTIAL OF ACHIEVEMENT</div>
-                                    <h3 class="cert-main-name" id="certMainTitle">Essential Computer Skills: Office Tools & IT Fundamentals</h3>
+                                    <div class="cert-credential-subtitle" id="certCredentialSubtitle">CREDENTIAL OF
+                                        ACHIEVEMENT</div>
+                                    <h3 class="cert-main-name" id="certMainTitle">Essential Computer Skills: Office
+                                        Tools & IT Fundamentals</h3>
                                     <span class="cert-type-tag" id="certTypeTag">35-HOUR INTENSIVE COURSE</span>
                                     <p class="cert-description-text" id="certDescription">
-                                        35-hour intensive foundational program covering workplace computing essentials, office productivity toolsets, digital data management, and fundamental information technology principles.
+                                        35-hour intensive foundational program covering workplace computing essentials,
+                                        office productivity toolsets, digital data management, and fundamental
+                                        information technology principles.
                                     </p>
                                     <div class="cert-skills-list" id="certSkillsContainer">
                                         <span class="cert-skill-pill">Office Productivity</span>
@@ -554,41 +756,43 @@
 
                                 <!-- Footer -->
                                 <div class="cert-card-footer">
-                                    <div class="cert-issuer-details">
-                                        <div class="cert-issuer-name" id="certIssuerName">St. Joseph's College of Engineering & Technology</div>
-                                        <div class="cert-issuer-sub" id="certIssuerSub">Department of Computer Applications • Palai, Kerala</div>
+                                    <div class="cert-issuer-group">
+                                        <div class="cert-seal-badge" title="Genuine Credential Verified">
+                                            <i class="fas fa-award"></i>
+                                            <span class="cert-seal-text">VERIFIED</span>
+                                        </div>
+                                        <div class="cert-issuer-details">
+                                            <div class="cert-issuer-name" id="certIssuerName">St. Joseph's College of
+                                                Engineering & Technology</div>
+                                            <div class="cert-issuer-sub" id="certIssuerSub">Department of Computer
+                                                Applications • Palai, Kerala</div>
+                                        </div>
                                     </div>
 
                                     <div class="cert-action-cluster">
-                                        <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-cert-view-main" id="viewCertificateBtn">
+                                        <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing"
+                                            target="_blank" rel="noopener noreferrer" class="btn-cert-view-main"
+                                            id="viewCertificateBtn">
                                             <i class="fas fa-external-link-alt"></i> View Certificate
                                         </a>
-                                        <button type="button" class="btn-cert-details-btn" id="previewCertDetailsBtn" title="Certificate Details & Verification">
+                                        <button type="button" class="btn-cert-details-btn" id="previewCertDetailsBtn"
+                                            title="Certificate Details & Verification">
                                             <i class="fas fa-id-card"></i> Details
                                         </button>
-                                        <a href="hackathon-nasa.html#certificates" class="btn-cert-story-btn" id="certStoryBtn" style="display: none;">
+                                        <a href="hackathon-nasa.html#certificates" class="btn-cert-story-btn"
+                                            id="certStoryBtn" style="display: none;">
                                             <i class="fas fa-rocket"></i> NASA Story
                                         </a>
-                                    </div>
-
-                                    <div class="cert-seal-badge" title="Genuine Credential Verified">
-                                        <i class="fas fa-award"></i>
-                                        <span class="cert-seal-text">VERIFIED</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Right Navigation Arrow -->
-                        <button class="cert-stage-arrow next" id="certNextArrow" aria-label="Next Certificate" type="button">
+                        <button class="cert-stage-arrow next" id="certNextArrow" aria-label="Next Certificate"
+                            type="button">
                             <i class="fas fa-chevron-right"></i>
                         </button>
-                    </div>
-
-                    <!-- Holographic Pedestal & Upward Light Beam -->
-                    <div class="cert-holo-stage">
-                        <div class="cert-holo-beam"></div>
-                        <div class="cert-holo-emitter"></div>
                     </div>
                 </div>
 
@@ -607,9 +811,11 @@
         </section>
 
         <!-- Fullscreen Certificate Viewer Modal -->
-        <div class="cert-modal-overlay" id="certModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="cert-modal-overlay" id="certModalOverlay" role="dialog" aria-modal="true"
+            aria-labelledby="modalTitle">
             <div class="cert-modal-dialog">
-                <button class="cert-modal-close" id="certModalClose" aria-label="Close Certificate Preview" type="button">
+                <button class="cert-modal-close" id="certModalClose" aria-label="Close Certificate Preview"
+                    type="button">
                     <i class="fas fa-times"></i>
                 </button>
                 <div class="cert-document-frame">
@@ -619,8 +825,11 @@
                     <div class="cert-modal-presented">THIS CREDENTIAL IS PROUDLY CONFERRED TO</div>
                     <div class="cert-modal-recipient">Binil Vincent</div>
                     <div class="cert-modal-for">in recognition of excellence and successful completion of</div>
-                    <div class="cert-modal-title" id="modalTitle">Essential Computer Skills: Office Tools & IT Fundamentals</div>
-                    <p class="cert-modal-desc" id="modalDesc">35-hour intensive foundational program covering workplace computing essentials, office productivity toolsets, digital data management, and fundamental information technology principles.</p>
+                    <div class="cert-modal-title" id="modalTitle">Essential Computer Skills: Office Tools & IT
+                        Fundamentals</div>
+                    <p class="cert-modal-desc" id="modalDesc">35-hour intensive foundational program covering workplace
+                        computing essentials, office productivity toolsets, digital data management, and fundamental
+                        information technology principles.</p>
 
                     <div class="cert-modal-meta-grid">
                         <div class="cert-meta-item">
@@ -629,19 +838,23 @@
                         </div>
                         <div class="cert-meta-item">
                             <div class="cert-meta-item-label">Verification ID</div>
-                            <div class="cert-meta-item-value" id="modalId" style="font-family: var(--font-mono, monospace);">SJCET-ECS-2025-01</div>
+                            <div class="cert-meta-item-value" id="modalId"
+                                style="font-family: var(--font-mono, monospace);">SJCET-ECS-2025-01</div>
                         </div>
                         <div class="cert-meta-item">
                             <div class="cert-meta-item-label">Issuing Authority</div>
-                            <div class="cert-meta-item-value" id="modalIssuer">St. Joseph's College of Engineering and Technology</div>
+                            <div class="cert-meta-item-value" id="modalIssuer">St. Joseph's College of Engineering and
+                                Technology</div>
                         </div>
                         <div class="cert-meta-item">
                             <div class="cert-meta-item-label">Credential Type</div>
-                            <div class="cert-meta-item-value" id="modalType" style="color: var(--modal-accent, #00f2fe);">35-HOUR INTENSIVE COURSE</div>
+                            <div class="cert-meta-item-value" id="modalType"
+                                style="color: var(--modal-accent, #00f2fe);">35-HOUR INTENSIVE COURSE</div>
                         </div>
                         <div class="cert-meta-item">
                             <div class="cert-meta-item-label">Credential Status</div>
-                            <div class="cert-meta-item-value" style="color: #22c55e;"><i class="fas fa-circle-check"></i> Authenticated</div>
+                            <div class="cert-meta-item-value" style="color: #22c55e;"><i
+                                    class="fas fa-circle-check"></i> Authenticated</div>
                         </div>
                     </div>
 
@@ -658,7 +871,9 @@
                             <button class="btn-modal-copy-id" id="modalCopyId" type="button">
                                 <i class="fas fa-copy"></i> Copy ID
                             </button>
-                            <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-modal-open-drive" id="modalOpenDrive">
+                            <a href="https://drive.google.com/file/d/1kMnI7slNXlUXc2msZsPgj6J_xZ-ZOd9g/view?usp=sharing"
+                                target="_blank" rel="noopener noreferrer" class="btn-modal-open-drive"
+                                id="modalOpenDrive">
                                 <i class="fas fa-arrow-up-right-from-square"></i> Open Official Certificate
                             </a>
                         </div>
@@ -675,7 +890,13 @@
         <!-- Contact Section -->
         <section id="contact">
             <div class="section-container">
-                <h2 class="section-title">Get In <span class="title-highlight">Touch</span></h2>
+                <div class="section-header-block">
+                    <span class="section-eyebrow"><i class="fas fa-envelope-open-text"></i> CONNECT &amp;
+                        COLLABORATE</span>
+                    <h2 class="section-title">Get In <span class="title-highlight">Touch</span></h2>
+                    <p class="section-subtitle">Interested in discussing DevOps infrastructure, cloud automation, or
+                        engineering opportunities? Reach out anytime.</p>
+                </div>
                 <div class="contact-container">
                     <div class="contact-info">
                         <div class="contact-card">
@@ -784,7 +1005,8 @@
     </div>
 
     <!-- Seat-Sync System Architecture & Engineering Breakdown Modal -->
-    <div class="seatsync-modal-overlay" id="seatSyncModal" role="dialog" aria-modal="true" aria-labelledby="seatSyncModalTitle">
+    <div class="seatsync-modal-overlay" id="seatSyncModal" role="dialog" aria-modal="true"
+        aria-labelledby="seatSyncModalTitle">
         <div class="seatsync-modal-dialog">
             <!-- Modal Header -->
             <div class="seatsync-modal-header">
@@ -807,7 +1029,8 @@
                 <div class="seatsync-modal-badges">
                     <span class="seatsync-mbadge v2"><i class="fas fa-code-branch"></i> Version 2.0.0</span>
                     <span class="seatsync-mbadge prod"><i class="fas fa-check-circle"></i> Production Ready</span>
-                    <span class="seatsync-mbadge sjcet"><i class="fas fa-building-columns"></i> SJCET Palai Implementation</span>
+                    <span class="seatsync-mbadge sjcet"><i class="fas fa-building-columns"></i> SJCET Palai
+                        Implementation</span>
                     <span class="seatsync-mbadge license"><i class="fas fa-scale-balanced"></i> MIT License</span>
                 </div>
 
@@ -815,10 +1038,17 @@
                 <div class="seatsync-section-block">
                     <h3><i class="fas fa-bullseye"></i> SJCET Palai Operational Problem & Proposed Solution</h3>
                     <p>
-                        In institutions like <strong>St. Joseph's College of Engineering and Technology (SJCET Palai)</strong>, traditional examination seating relied on manual spreadsheet compilation. This process consumed hours of administrative work, led to human data entry duplicates, created chaotic physical notice board crowding before exams, and frequently seated students from the same department adjacent to each other.
+                        In institutions like <strong>St. Joseph's College of Engineering and Technology (SJCET
+                            Palai)</strong>, traditional examination seating relied on manual spreadsheet compilation.
+                        This process consumed hours of administrative work, led to human data entry duplicates, created
+                        chaotic physical notice board crowding before exams, and frequently seated students from the
+                        same department adjacent to each other.
                     </p>
                     <p>
-                        <strong>Seat-Sync</strong> completely automates this workflow into a single unified platform. It reduces multi-hall seat distribution time from hours to under <strong>800 milliseconds</strong>, eliminates student notice board crowding via real-time WebSocket push notifications, and mathematically guarantees zero same-department adjacency.
+                        <strong>Seat-Sync</strong> completely automates this workflow into a single unified platform. It
+                        reduces multi-hall seat distribution time from hours to under <strong>800 milliseconds</strong>,
+                        eliminates student notice board crowding via real-time WebSocket push notifications, and
+                        mathematically guarantees zero same-department adjacency.
                     </p>
                 </div>
 
@@ -826,7 +1056,8 @@
                 <div class="seatsync-section-block">
                     <h3><i class="fas fa-microchip"></i> Dual-Pool Interleaving Matchmaking Engine</h3>
                     <p>
-                        Seat-Sync partitions incoming student rosters into distinct departmental pools and executes a dual-pool interleaving matchmaking algorithm. For every bench pair in every exam hall:
+                        Seat-Sync partitions incoming student rosters into distinct departmental pools and executes a
+                        dual-pool interleaving matchmaking algorithm. For every bench pair in every exam hall:
                         <code>Department(Seat_Left) ≠ Department(Seat_Right)</code>
                     </p>
 
@@ -873,11 +1104,13 @@
                     <div class="seatsync-portals-grid" style="grid-template-columns: repeat(2, 1fr);">
                         <div class="portal-mini-card">
                             <h4><i class="fas fa-university"></i> University End-Semester Module</h4>
-                            <p>Campus-wide, multi-hall simultaneous seating execution for KTU end-semester exams with automatic hall capacity throttling and invigilator rosters.</p>
+                            <p>Campus-wide, multi-hall simultaneous seating execution for KTU end-semester exams with
+                                automatic hall capacity throttling and invigilator rosters.</p>
                         </div>
                         <div class="portal-mini-card">
                             <h4><i class="fas fa-pencil"></i> Internal Series Module</h4>
-                            <p>Department-level series and midterm exams with subject-wise interleaving, rapid room reallocation, and automated faculty invigilation duty charts.</p>
+                            <p>Department-level series and midterm exams with subject-wise interleaving, rapid room
+                                reallocation, and automated faculty invigilation duty charts.</p>
                         </div>
                     </div>
                 </div>
@@ -888,15 +1121,18 @@
                     <div class="seatsync-portals-grid">
                         <div class="portal-mini-card">
                             <h4><i class="fas fa-user-shield"></i> Admin Portal</h4>
-                            <p>Room/hall layout configs, CSV batch student ingestion, one-click &lt;800ms allocation, master PDF report export, invigilator duty assignments.</p>
+                            <p>Room/hall layout configs, CSV batch student ingestion, one-click &lt;800ms allocation,
+                                master PDF report export, invigilator duty assignments.</p>
                         </div>
                         <div class="portal-mini-card">
                             <h4><i class="fas fa-user-graduate"></i> Student Portal</h4>
-                            <p>Instant mobile seat lookup (Room, Bench, Seat position), real-time exam schedule, live countdown, and direct hall floor directions.</p>
+                            <p>Instant mobile seat lookup (Room, Bench, Seat position), real-time exam schedule, live
+                                countdown, and direct hall floor directions.</p>
                         </div>
                         <div class="portal-mini-card">
                             <h4><i class="fas fa-chalkboard-user"></i> Invigilator Portal</h4>
-                            <p>Digital hall seating chart, instant QR / roll check-in, real-time student attendance verification, and malpractice logging.</p>
+                            <p>Digital hall seating chart, instant QR / roll check-in, real-time student attendance
+                                verification, and malpractice logging.</p>
                         </div>
                     </div>
                 </div>
@@ -905,7 +1141,11 @@
                 <div class="seatsync-section-block">
                     <h3><i class="fas fa-server"></i> Technical Stack & Integrity Guarantees</h3>
                     <p>
-                        Built with a modern reactive frontend in <strong>React 19 & TypeScript</strong>, powered by an asynchronous <strong>Express 5 & Node.js</strong> micro-backend. Real-time updates utilize a <strong>Socket.io</strong> event bus, and database durability is enforced via <strong>Sequelize ORM v6</strong> running on <strong>MySQL</strong> with SQLite fallback. Strict foreign-key referential integrity ensures zero orphan allocations or duplicate seats.
+                        Built with a modern reactive frontend in <strong>React 19 & TypeScript</strong>, powered by an
+                        asynchronous <strong>Express 5 & Node.js</strong> micro-backend. Real-time updates utilize a
+                        <strong>Socket.io</strong> event bus, and database durability is enforced via <strong>Sequelize
+                            ORM v6</strong> running on <strong>MySQL</strong> with SQLite fallback. Strict foreign-key
+                        referential integrity ensures zero orphan allocations or duplicate seats.
                     </p>
                 </div>
             </div>
@@ -916,10 +1156,12 @@
                     <i class="fas fa-code"></i> GitHub: bvthz5/Seat-Sync
                 </div>
                 <div class="seatsync-modal-footer-actions">
-                    <button type="button" class="btn-seatsync-specs" id="seatSyncModalFooterClose" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #cbd5e1;">
+                    <button type="button" class="btn-seatsync-specs" id="seatSyncModalFooterClose"
+                        style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #cbd5e1;">
                         Close
                     </button>
-                    <a href="https://github.com/bvthz5/Seat-Sync.git" target="_blank" rel="noopener noreferrer" class="btn-seatsync-github">
+                    <a href="https://github.com/bvthz5/Seat-Sync.git" target="_blank" rel="noopener noreferrer"
+                        class="btn-seatsync-github">
                         <i class="fab fa-github"></i> Open on GitHub ↗
                     </a>
                 </div>
@@ -930,7 +1172,7 @@
     <script src="js/seatsync.js"></script>
     <script src="js/nik-chatbot.js"></script>
     <script src="js/certificates.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=1.5"></script>
 </body>
 
 </html>

@@ -128,11 +128,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Use IntersectionObserver for scroll indicators (much more efficient than scroll events)
     setupScrollIndicators(elements);
 
+    // Initialize Hero Dynamic Role & Specialization Orchestrator
+    initHeroRoleOrchestrator();
+
     // Defer all heavy operations with progressive enhancement
     setTimeout(() => createStarsProgressive(), 100);
     setTimeout(() => createBubblesProgressive(), 200);
     setTimeout(() => initSlideshowLazy(elements), 300);
     setTimeout(() => initGSAPLazy(), 400);
+    setTimeout(() => initEducationTimelineScroll(), 150);
 });
 
 // Scroll indicators using IntersectionObserver (no layout reads on scroll!)
@@ -482,5 +486,253 @@ function initScrollTriggers() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 300);
     }, { passive: true });
+
+    // Initialize Education Timeline scroll progress
+    initEducationTimelineScroll();
 }
 
+// ==========================================================================
+// Education Timeline Dynamic Scroll Down Progress Controller
+// Animates glowing laser beam traveling from node to node as user scrolls
+// ==========================================================================
+function initEducationTimelineScroll() {
+    const timeline = document.querySelector('#education .education-timeline');
+    const progressBar = document.getElementById('educationProgressBeam');
+    if (!timeline || !progressBar) return;
+
+    const milestones = Array.from(timeline.querySelectorAll('.education-milestone'));
+    if (!milestones.length) return;
+
+    function updateProgress() {
+        const timelineRect = timeline.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Focal point: 65% of viewport height (natural reading eye-line)
+        const focalPoint = viewportHeight * 0.65;
+
+        // Position of the scroll head relative to timeline top
+        const currentHead = focalPoint - timelineRect.top;
+
+        // If above the timeline, reset beam
+        if (currentHead <= 15) {
+            progressBar.style.height = '0px';
+            progressBar.classList.remove('is-active');
+            milestones.forEach(m => m.classList.remove('node-active'));
+            return;
+        }
+
+        progressBar.classList.add('is-active');
+
+        // Target height clamped between 0 and full timeline height
+        const targetHeight = Math.max(0, Math.min(timelineRect.height - 20, currentHead));
+        progressBar.style.height = `${targetHeight}px`;
+
+        // Check each milestone node
+        milestones.forEach((milestone) => {
+            const node = milestone.querySelector('.milestone-node');
+            if (!node) return;
+
+            // Center of this node relative to the top of the timeline container
+            const nodeRect = node.getBoundingClientRect();
+            const nodeCenterRelative = (nodeRect.top + nodeRect.height / 2) - timelineRect.top;
+
+            // When the beam tip reaches within 14px of the node center, ignite it!
+            if (targetHeight >= nodeCenterRelative - 14) {
+                if (!milestone.classList.contains('node-active')) {
+                    milestone.classList.add('node-active');
+                    if (window.gsap) {
+                        gsap.fromTo(node, 
+                            { scale: 0.95 }, 
+                            { scale: 1.15, duration: 0.35, yoyo: true, repeat: 1, ease: 'back.out(2)' }
+                        );
+                    }
+                }
+            } else {
+                milestone.classList.remove('node-active');
+            }
+        });
+    }
+
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateProgress();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    // Initial calculation
+    updateProgress();
+}
+
+/**
+ * Hero Role & Specialization Orchestrator ("Written and Vanish" Synchronized Experience)
+ * Phase 1: Displays "DevOps Engineer & Full-Stack Engineer" with high-level systems overview
+ * Phase 2: Vanishes, then types "DevOps Engineer" and below cycles through DevOps tools (Linux, Docker, K8s, Terraform, etc.)
+ * Phase 3: Vanishes, then types "Full-Stack Engineer" and below cycles through Full-Stack tools (.NET, React, Python, Node, etc.)
+ * Continues indefinitely in an ultra-smooth, responsive loop.
+ */
+function initHeroRoleOrchestrator() {
+    const titleEl = document.getElementById('roleTitleText');
+    const titleCursorEl = document.getElementById('roleTitleCursor');
+    const consoleTextEl = document.getElementById('consoleTypingText');
+    const specSymbolEl = document.getElementById('specSymbol');
+    const specCursorEl = document.getElementById('specCursor');
+    const specLineEl = document.getElementById('heroSpecLine');
+
+    if (!titleEl || !consoleTextEl) return;
+
+    // Natural typewriter character insertion
+    function typeText(element, text, speed = 50) {
+        return new Promise(resolve => {
+            let i = 0;
+            element.textContent = '';
+            function tick() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(tick, speed + Math.random() * 15);
+                } else {
+                    resolve();
+                }
+            }
+            tick();
+        });
+    }
+
+    // Smooth vanish/backspacing
+    function eraseText(element, speed = 24) {
+        return new Promise(resolve => {
+            function tick() {
+                const current = element.textContent;
+                if (current.length > 0) {
+                    element.textContent = current.substring(0, current.length - 1);
+                    setTimeout(tick, speed);
+                } else {
+                    resolve();
+                }
+            }
+            tick();
+        });
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const sequence = [
+        // 1. Initial High-Level Foundation
+        {
+            title: "DevOps Engineer & Full-Stack Engineer",
+            titleClass: "role-combined",
+            symbolClass: "",
+            cursorClass: "",
+            specLineClass: "",
+            subSkills: [
+                "Automated Cloud Infrastructure & Distributed Systems"
+            ],
+            skillHoldTime: 3200
+        },
+        // 2. Dedicated DevOps Engineer
+        {
+            title: "DevOps Engineer",
+            titleClass: "role-devops",
+            symbolClass: "",
+            cursorClass: "",
+            specLineClass: "",
+            subSkills: [
+                "Linux (Ubuntu / RHEL) & Kernel Automation",
+                "Docker Containerization & Multi-Stage Builds",
+                "Kubernetes (K8s) Cluster Orchestration",
+                "CI/CD Pipelines (GitHub Actions & GitLab CI)",
+                "Multi-Cloud (AWS • Microsoft Azure • GCP)",
+                "Terraform (Infrastructure as Code - IaC)",
+                "Ansible Playbooks & Configuration Automation",
+                "Observability (Prometheus • Grafana • Netdata)"
+            ],
+            skillHoldTime: 2000
+        },
+        // 3. Dedicated Full-Stack Engineer
+        {
+            title: "Full-Stack Engineer",
+            titleClass: "role-fullstack",
+            symbolClass: "symbol-purple",
+            cursorClass: "cursor-purple",
+            specLineClass: "theme-purple",
+            subSkills: [
+                "ASP.NET Core & C# Distributed Backend",
+                "React.js (React 19) & Modern Reactive Web",
+                "Node.js & Express Real-Time Microservices",
+                "Python Automation, Flask & FastAPI",
+                "TypeScript & Scalable Modular Architecture",
+                "Databases (MySQL • PostgreSQL • MongoDB • Redis)"
+            ],
+            skillHoldTime: 2000
+        }
+    ];
+
+    let stateIndex = 0;
+
+    async function runLoop() {
+        // First state is already loaded in static HTML — wait for reader
+        await sleep(3000);
+
+        while (true) {
+            // Vanish current specialization text
+            await eraseText(consoleTextEl, 22);
+            await sleep(200);
+
+            // Vanish current main role title ("and that goes")
+            await eraseText(titleEl, 28);
+            await sleep(350);
+
+            // Advance to next state
+            stateIndex = (stateIndex + 1) % sequence.length;
+            const nextState = sequence[stateIndex];
+
+            // Update title gradient class
+            titleEl.className = 'role-title-text ' + nextState.titleClass;
+
+            // Update symbol and cursor theme
+            if (specSymbolEl) {
+                specSymbolEl.className = 'spec-symbol ' + (nextState.symbolClass || '');
+            }
+            if (specCursorEl) {
+                specCursorEl.className = 'spec-cursor ' + (nextState.cursorClass || '');
+            }
+            if (titleCursorEl) {
+                titleCursorEl.className = 'role-title-cursor ' + (nextState.cursorClass || '');
+            }
+            if (specLineEl) {
+                specLineEl.className = 'hero-spec-line ' + (nextState.specLineClass || '');
+            }
+
+            // Type next main title (e.g. "DevOps Engineer" or "Full-Stack Engineer")
+            await typeText(titleEl, nextState.title, 48);
+            await sleep(400);
+
+            // Type and vanish each corresponding technology below
+            for (let i = 0; i < nextState.subSkills.length; i++) {
+                const skill = nextState.subSkills[i];
+                await typeText(consoleTextEl, skill, 40);
+                await sleep(nextState.skillHoldTime);
+
+                // Vanish to prepare for the next tech if not last
+                if (i < nextState.subSkills.length - 1) {
+                    await eraseText(consoleTextEl, 22);
+                    await sleep(250);
+                }
+            }
+
+            // Short pause at end of state before next role change
+            await sleep(500);
+        }
+    }
+
+    runLoop();
+}

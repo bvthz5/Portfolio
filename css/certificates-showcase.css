@@ -23,27 +23,31 @@
 /* Header & Title */
 .cert-showcase-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cert-main-title {
     font-family: var(--font-heading, 'Outfit', sans-serif);
-    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+    font-size: clamp(2.1rem, 3.8vw, 3.1rem);
     font-weight: 800;
     color: #ffffff;
-    letter-spacing: -0.5px;
-    margin-bottom: 1.1rem;
+    letter-spacing: -0.03em;
+    margin: 0 auto 0.75rem auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.55rem;
+    white-space: nowrap;
 }
 
 .cert-gradient-text {
-    background: linear-gradient(110deg, #00f2fe 0%, #38bdf8 35%, #c084fc 70%, #ec4899 100%);
+    background: linear-gradient(135deg, #00f3ff 0%, #818cf8 50%, #c084fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 35px rgba(0, 242, 254, 0.35);
+    filter: drop-shadow(0 0 25px rgba(0, 243, 255, 0.4));
     display: inline-block;
 }
 
@@ -134,8 +138,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1rem auto 2.2rem;
-    min-height: 440px;
+    margin: 1.5rem auto 2.5rem;
+    min-height: auto;
 }
 
 /* Navigation Arrows */
@@ -246,87 +250,188 @@
     }
 }
 
-/* Hologram Base & Emitter Pedestal */
+/* Hologram Base & Emitter Pedestal (Hidden) */
 .cert-holo-stage {
-    position: relative;
-    width: 100%;
-    max-width: 520px;
-    height: 125px;
-    margin-top: -45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    z-index: 2;
+    display: none !important;
+}
+
+/* Ambient Ground Glow on the Floor */
+.cert-holo-ground-glow {
+    position: absolute;
+    bottom: 5px;
+    width: 440px;
+    height: 65px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, var(--active-theme-glow, rgba(0, 242, 254, 0.45)) 0%, rgba(6, 182, 212, 0.15) 45%, transparent 70%);
+    filter: blur(14px);
+    opacity: 0.8;
+    animation: groundBreathe 4s ease-in-out infinite alternate;
+}
+
+@keyframes groundBreathe {
+    0% {
+        opacity: 0.55;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
 }
 
 /* Upward Holographic Light Beam */
 .cert-holo-beam {
     position: absolute;
     bottom: 25px;
-    width: 400px;
+    width: 420px;
     height: 135px;
-    clip-path: polygon(25% 0%, 75% 0%, 96% 100%, 4% 100%);
-    background: linear-gradient(to top, rgba(0, 242, 254, 0.5) 0%, rgba(6, 182, 212, 0.22) 50%, rgba(6, 182, 212, 0.02) 100%);
-    opacity: 0.9;
+    clip-path: polygon(18% 0%, 82% 0%, 96% 100%, 4% 100%);
+    background: linear-gradient(to top, 
+        var(--active-theme-glow, rgba(0, 242, 254, 0.45)) 0%, 
+        var(--active-theme-glow-inner, rgba(0, 242, 254, 0.16)) 50%, 
+        transparent 100%
+    );
+    opacity: 0.85;
     animation: beamShimmer 4s ease-in-out infinite alternate;
-    filter: blur(1px);
+    filter: blur(1.5px);
+    pointer-events: none;
 }
 
 @keyframes beamShimmer {
     0% {
-        opacity: 0.7;
-        clip-path: polygon(27% 0%, 73% 0%, 94% 100%, 6% 100%);
+        opacity: 0.65;
+        clip-path: polygon(20% 0%, 80% 0%, 95% 100%, 5% 100%);
+        transform: scaleY(0.97);
     }
     100% {
-        opacity: 0.95;
-        clip-path: polygon(23% 0%, 77% 0%, 97% 100%, 3% 100%);
+        opacity: 0.92;
+        clip-path: polygon(16% 0%, 84% 0%, 97% 100%, 3% 100%);
+        transform: scaleY(1.03);
     }
 }
 
-/* Glowing Circular Emitter Disk */
+/* 3D Floor Emitter Stage Plate */
 .cert-holo-emitter {
     position: absolute;
     bottom: 0;
-    width: 340px;
-    height: 70px;
-    border-radius: 50%;
-    transform: perspective(400px) rotateX(68deg);
-    border: 2px solid rgba(0, 242, 254, 0.85);
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.85) 0%, rgba(6, 182, 212, 0.35) 45%, rgba(6, 182, 212, 0.05) 75%, transparent 100%);
-    box-shadow: 0 0 35px rgba(0, 242, 254, 0.75), inset 0 0 25px rgba(0, 242, 254, 0.55);
-    animation: emitterPulse 4s ease-in-out infinite alternate;
+    width: 320px;
+    height: 320px;
+    margin-bottom: -125px;
+    transform-style: preserve-3d;
+    transform: perspective(600px) rotateX(72deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
 }
 
-/* Secondary Concentric Ring */
-.cert-holo-emitter::after {
-    content: '';
+/* Base Glowing Disc */
+.cert-emitter-disc {
     position: absolute;
-    inset: 12px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    border: 1.5px dashed rgba(0, 242, 254, 0.6);
-    box-shadow: inset 0 0 15px rgba(0, 242, 254, 0.4);
-    animation: ringSpin 20s linear infinite;
+    border: 2px solid var(--active-theme-color, #00f2fe);
+    background: radial-gradient(circle, 
+        var(--active-theme-glow, rgba(0, 242, 254, 0.5)) 0%, 
+        var(--active-theme-glow-inner, rgba(0, 242, 254, 0.2)) 40%, 
+        rgba(8, 14, 26, 0.45) 70%, 
+        transparent 100%
+    );
+    box-shadow: 0 0 30px var(--active-theme-glow, rgba(0, 242, 254, 0.6)), 
+                inset 0 0 25px var(--active-theme-glow, rgba(0, 242, 254, 0.4));
 }
 
-@keyframes emitterPulse {
-    0% {
-        transform: perspective(400px) rotateX(68deg) scale(0.95);
-        box-shadow: 0 0 25px rgba(0, 242, 254, 0.55), inset 0 0 18px rgba(0, 242, 254, 0.4);
-    }
-    100% {
-        transform: perspective(400px) rotateX(68deg) scale(1.04);
-        box-shadow: 0 0 45px rgba(0, 242, 254, 0.9), inset 0 0 30px rgba(0, 242, 254, 0.7);
-    }
+/* Outer Sci-Fi Dashed Orbit Ring (Smooth Flat 3D Rotation) */
+.cert-emitter-ring-outer {
+    position: absolute;
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    border: 1.8px dashed var(--active-theme-color, #00f2fe);
+    box-shadow: 0 0 16px var(--active-theme-glow, rgba(0, 242, 254, 0.4)),
+                inset 0 0 14px var(--active-theme-glow, rgba(0, 242, 254, 0.25));
+    animation: ringSpin 22s linear infinite;
+}
+
+/* Inner Dotted Counter-Rotating HUD Ring */
+.cert-emitter-ring-inner {
+    position: absolute;
+    width: 68%;
+    height: 68%;
+    border-radius: 50%;
+    border: 1.5px dotted var(--active-theme-color, #00f2fe);
+    opacity: 0.85;
+    animation: ringSpinReverse 14s linear infinite;
+}
+
+/* Concentric Expanding Holographic Ripple Wave */
+.cert-emitter-pulse {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    border-radius: 50%;
+    border: 2px solid var(--active-theme-color, #00f2fe);
+    box-shadow: 0 0 18px var(--active-theme-color, #00f2fe);
+    animation: waveExpand 3s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+/* High-Intensity Plasma Emitter Core */
+.cert-emitter-core {
+    position: absolute;
+    width: 32%;
+    height: 32%;
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+        #ffffff 0%, 
+        var(--active-theme-color, #00f2fe) 40%, 
+        var(--active-theme-glow, rgba(0, 242, 254, 0.8)) 70%, 
+        transparent 100%
+    );
+    box-shadow: 0 0 25px #ffffff, 
+                0 0 45px var(--active-theme-color, #00f2fe);
+    animation: corePulse 3s ease-in-out infinite alternate;
 }
 
 @keyframes ringSpin {
     0% {
-        transform: rotate(0deg);
+        transform: rotateZ(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes ringSpinReverse {
+    0% {
+        transform: rotateZ(360deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes waveExpand {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.95;
+    }
+    100% {
+        transform: scale(2.1);
+        opacity: 0;
+    }
+}
+
+@keyframes corePulse {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.85;
+        box-shadow: 0 0 20px #ffffff, 0 0 35px var(--active-theme-color, #00f2fe);
+    }
+    100% {
+        transform: scale(1.08);
+        opacity: 1;
+        box-shadow: 0 0 30px #ffffff, 0 0 55px var(--active-theme-color, #00f2fe);
     }
 }
 
@@ -418,8 +523,9 @@
     font-weight: 600;
     color: #94a3b8;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     margin-bottom: 0.4rem;
+    text-align: left;
 }
 
 .cert-main-name {
@@ -427,9 +533,12 @@
     font-size: clamp(1.6rem, 3.2vw, 2.15rem);
     font-weight: 800;
     color: #ffffff;
-    line-height: 1.18;
+    line-height: 1.22;
     margin-bottom: 0.45rem;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.02em;
+    word-spacing: normal;
+    text-align: left;
+    text-wrap: balance;
 }
 
 .cert-type-tag {
@@ -437,18 +546,23 @@
     font-weight: 700;
     color: var(--active-theme-color, #a6ff00);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 0.85rem;
     transition: color 0.3s ease;
+    text-align: left;
 }
 
 .cert-description-text {
     font-size: 0.92rem;
-    line-height: 1.6;
+    line-height: 1.62;
     color: #cbd5e1;
     margin-bottom: 1rem;
     max-width: 580px;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    letter-spacing: normal;
 }
 
 /* Skills tags */
@@ -477,26 +591,37 @@
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 1.25rem;
     margin-top: auto;
-    gap: 1rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
+}
+
+.cert-issuer-group {
+    display: flex;
+    align-items: center;
+    gap: 0.95rem;
+    flex: 1;
+    min-width: 250px;
 }
 
 .cert-issuer-details {
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .cert-issuer-name {
     font-family: var(--font-heading, 'Outfit', sans-serif);
-    font-size: 1.2rem;
+    font-size: 1.18rem;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.2px;
+    line-height: 1.3;
 }
 
 .cert-issuer-sub {
     font-size: 0.78rem;
     color: #94a3b8;
+    line-height: 1.4;
 }
 
 /* Action View Buttons (Specific Request) */
@@ -504,6 +629,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-shrink: 0;
 }
 
 .btn-cert-view-main {
@@ -927,6 +1053,10 @@
     color: var(--modal-accent, #00f2fe);
     line-height: 1.25;
     margin-bottom: 1.2rem;
+    text-align: left;
+    text-wrap: balance;
+    word-spacing: normal;
+    letter-spacing: -0.01em;
 }
 
 .cert-modal-desc {
@@ -935,6 +1065,9 @@
     color: #cbd5e1;
     margin-bottom: 1.8rem;
     max-width: 650px;
+    text-align: left;
+    word-spacing: normal;
+    letter-spacing: normal;
 }
 
 .cert-modal-meta-grid {
@@ -1277,6 +1410,10 @@
     color: #ffffff;
     line-height: 1.38;
     margin-bottom: 0.75rem;
+    text-align: left;
+    text-wrap: balance;
+    word-spacing: normal;
+    letter-spacing: -0.01em;
 }
 
 .cert-grid-desc {
@@ -1285,6 +1422,9 @@
     line-height: 1.55;
     margin-bottom: 1.1rem;
     flex-grow: 1;
+    text-align: left;
+    word-spacing: normal;
+    letter-spacing: normal;
 }
 
 .cert-grid-skills {
@@ -1422,13 +1562,18 @@
 
     .cert-card-footer {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 1.2rem;
+    }
+
+    .cert-issuer-group {
+        width: 100%;
     }
 
     .cert-action-cluster {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 0.65rem;
     }
 
     .cert-holo-stage {
@@ -1437,11 +1582,19 @@
     }
 
     .cert-holo-beam {
-        width: 260px;
+        width: 280px;
+        height: 110px;
     }
 
     .cert-holo-emitter {
-        width: 240px;
+        width: 220px;
+        height: 220px;
+        margin-bottom: -80px;
+    }
+
+    .cert-holo-ground-glow {
+        width: 280px;
+        height: 45px;
     }
 
     .cert-modal-dialog {
