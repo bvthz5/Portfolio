@@ -131,11 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize Hero Dynamic Role & Specialization Orchestrator
     initHeroRoleOrchestrator();
 
-    // Defer all heavy operations with progressive enhancement
+    // Initialize Cyber Interactions (Card Spotlight, Mouse Glow, Scroll Progress)
+    initCyberInteractions();
+
+    setTimeout(() => initGSAPLazy(), 50);
     setTimeout(() => createStarsProgressive(), 100);
     setTimeout(() => createBubblesProgressive(), 200);
     setTimeout(() => initSlideshowLazy(elements), 300);
-    setTimeout(() => initGSAPLazy(), 400);
     setTimeout(() => initEducationTimelineScroll(), 150);
 });
 
@@ -342,18 +344,74 @@ function initSlideshowLazy(elements) {
     setTimeout(() => setInterval(changeSlide, slideInterval), 1000);
 }
 
-// Lazy GSAP initialization - split into chunks
+// ==========================================================================
+// Interactive Cyber Spotlight, Mouse Glow & Scroll Progress
+// ==========================================================================
+function initCyberInteractions() {
+    // 1. Interactive Card Holographic Spotlight
+    const interactiveCards = document.querySelectorAll(
+        '.skill-card, .project-card, .about-pillar-card, .milestone-card, .cert-card'
+    );
+
+    interactiveCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--card-x', `${x}px`);
+            card.style.setProperty('--card-y', `${y}px`);
+        }, { passive: true });
+    });
+
+    // 2. Global Interactive Mouse Glow Spotlight
+    let mouseGlow = document.getElementById('globalMouseGlow');
+    if (!mouseGlow) {
+        mouseGlow = document.createElement('div');
+        mouseGlow.id = 'globalMouseGlow';
+        mouseGlow.className = 'global-mouse-glow';
+        document.body.appendChild(mouseGlow);
+    }
+
+    let mouseX = -500, mouseY = -500;
+    let glowX = -500, glowY = -500;
+
+    window.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    }, { passive: true });
+
+    function renderGlow() {
+        glowX += (mouseX - glowX) * 0.12;
+        glowY += (mouseY - glowY) * 0.12;
+        mouseGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
+        requestAnimationFrame(renderGlow);
+    }
+    requestAnimationFrame(renderGlow);
+
+    // 3. Dynamic Reading Scroll Progress on Navigation Header
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        document.documentElement.style.setProperty('--scroll-progress', `${progress}%`);
+    }
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
+}
+
+// Lazy GSAP initialization with high-tier animations
 function initGSAPLazy() {
     if (typeof gsap === 'undefined') return;
 
-    // Skip floating elements to reduce load
-
-    // Step 1: Home animations only
-    gsap.timeline({ defaults: { ease: "power2.out" } })
-        .from('.home-content h1', { duration: 0.6, y: 20, opacity: 0 })
-        .from('.home-content h2', { duration: 0.5, y: 15, opacity: 0 }, "-=0.3")
-        .from('.home-content p', { duration: 0.5, y: 15, opacity: 0 }, "-=0.2")
-        .from('.btn-container', { duration: 0.5, y: 15, opacity: 0 }, "-=0.2");
+    // Step 1: Hero cinematic entrance
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    heroTl
+        .from('.hero-status-pill', { duration: 0.65, y: -20, opacity: 0, ease: "back.out(1.5)" })
+        .from('.home-content h1', { duration: 0.85, y: 35, opacity: 0, filter: "blur(8px)" }, "-=0.35")
+        .from('.hero-role-block', { duration: 0.8, y: 25, opacity: 0 }, "-=0.5")
+        .from('.home-content p', { duration: 0.8, y: 20, opacity: 0 }, "-=0.4")
+        .from('.btn-container', { duration: 0.75, y: 20, opacity: 0, ease: "power2.out" }, "-=0.3")
+        .from('.profile-img', { duration: 1.1, scale: 0.9, opacity: 0, filter: "blur(12px)", ease: "power2.out" }, "-=0.8");
 
     // Ensure profile image is cleared of any stale inline styles
     const profileImg = document.querySelector('.profile-img');
@@ -366,101 +424,145 @@ function initGSAPLazy() {
     setTimeout(() => initScrollTriggers(), 100);
 }
 
-// Separate function for ScrollTrigger setup
+// Comprehensive ScrollTrigger setup across all sections
 function initScrollTriggers() {
-    if (typeof gsap === 'undefined') return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    const scrollConfig = {
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
-        once: false
-    };
+    // 1. Synchronized Section Headers Reveal (Eyebrow -> Title -> Subtitle)
+    gsap.utils.toArray('.section-header-block').forEach(header => {
+        const eyebrow = header.querySelector('.section-eyebrow');
+        const title = header.querySelector('.section-title');
+        const subtitle = header.querySelector('.section-subtitle');
 
-    // About section
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: header,
+                start: 'top 90%',
+                toggleActions: 'play none none none',
+                once: true
+            }
+        });
+
+        if (eyebrow) tl.from(eyebrow, { duration: 0.5, y: -12, opacity: 0, ease: "power2.out" });
+        if (title) tl.from(title, { duration: 0.65, y: 22, opacity: 0, filter: "blur(6px)", ease: "power3.out" }, "-=0.35");
+        if (subtitle) tl.from(subtitle, { duration: 0.55, y: 15, opacity: 0, ease: "power2.out" }, "-=0.3");
+    });
+
+    // 2. About Section: Image Slideshow & Content Stagger
     gsap.from('.about-img-slideshow', {
-        scrollTrigger: { trigger: '#about', ...scrollConfig },
-        duration: 0.6,
-        x: -50,
+        scrollTrigger: { trigger: '#about', start: 'top 88%', toggleActions: 'play none none none', once: true },
+        duration: 0.85,
+        x: -40,
         opacity: 0,
+        filter: "blur(8px)",
+        ease: "power3.out"
+    });
+
+    gsap.from('.about-content .about-role-headline, .about-content .about-lead', {
+        scrollTrigger: { trigger: '#about', start: 'top 88%', toggleActions: 'play none none none', once: true },
+        duration: 0.75,
+        x: 40,
+        opacity: 0,
+        stagger: 0.12,
+        ease: "power3.out"
+    });
+
+    gsap.utils.toArray('.about-pillars-grid .about-pillar-card').forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none', once: true },
+            duration: 0.6,
+            y: 25,
+            opacity: 0,
+            scale: 0.96,
+            ease: "power2.out"
+        });
+    });
+
+    gsap.from('.about-quick-tags .about-tag', {
+        scrollTrigger: { trigger: '.about-quick-tags', start: 'top 92%', toggleActions: 'play none none none', once: true },
+        duration: 0.5,
+        y: 15,
+        opacity: 0,
+        stagger: 0.08,
+        ease: "back.out(1.2)"
+    });
+
+    // 3. Work Experience Milestone Card
+    gsap.utils.toArray('.work-timeline .milestone-card').forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none', once: true },
+            duration: 0.7,
+            y: 30,
+            opacity: 0,
+            scale: 0.97,
+            ease: "power3.out"
+        });
+    });
+
+    // 4. Skills Cards: Individual Card Reveals
+    gsap.utils.toArray('.skills-container .skill-card').forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none', once: true },
+            duration: 0.65,
+            y: 28,
+            opacity: 0,
+            scale: 0.96,
+            ease: "power3.out"
+        });
+    });
+
+    // 5. Education Timeline Milestones Reveal
+    gsap.utils.toArray('#education .education-milestone').forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none', once: true },
+            duration: 0.65,
+            y: 30,
+            opacity: 0,
+            ease: "power3.out"
+        });
+    });
+
+    // 6. Projects Cards: Individual Card Reveals
+    gsap.utils.toArray('.projects-container .project-card').forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none', once: true },
+            duration: 0.65,
+            y: 30,
+            opacity: 0,
+            scale: 0.96,
+            ease: "power3.out"
+        });
+    });
+
+    // 7. Certifications Showcase Entrance
+    gsap.from('.cert-showcase-container', {
+        scrollTrigger: { trigger: '#certifications', start: 'top 88%', toggleActions: 'play none none none', once: true },
+        duration: 0.85,
+        y: 35,
+        opacity: 0,
+        scale: 0.96,
+        ease: "power3.out"
+    });
+
+    // 8. Contact Section: Split Entrance
+    gsap.from('.contact-info .contact-item, .contact-info .social-links a', {
+        scrollTrigger: { trigger: '#contact', start: 'top 88%', toggleActions: 'play none none none', once: true },
+        duration: 0.6,
+        x: -25,
+        opacity: 0,
+        stagger: 0.08,
         ease: "power2.out"
     });
 
-    gsap.from('.about-content', {
-        scrollTrigger: { trigger: '#about', ...scrollConfig },
-        duration: 0.6,
-        x: 50,
+    gsap.from('.contact-form', {
+        scrollTrigger: { trigger: '#contact', start: 'top 88%', toggleActions: 'play none none none', once: true },
+        duration: 0.75,
+        x: 35,
         opacity: 0,
-        ease: "power2.out"
+        ease: "power3.out"
     });
 
-    // Defer card animations - split into separate batches to prevent long tasks
-    setTimeout(() => {
-        // Batch 1: Timeline and skills
-        ['.timeline-item', '.skill-card'].forEach(selector => {
-            gsap.utils.toArray(selector).forEach((el) => {
-                gsap.from(el, {
-                    scrollTrigger: { trigger: el, ...scrollConfig },
-                    duration: 0.5,
-                    y: 20,
-                    opacity: 0,
-                    ease: "power2.out"
-                });
-            });
-        });
-    }, 50);
-
-    setTimeout(() => {
-        // Batch 2: Projects and certs
-        ['.project-card', '.cert-card', '.section-title'].forEach(selector => {
-            gsap.utils.toArray(selector).forEach((el) => {
-                gsap.from(el, {
-                    scrollTrigger: { trigger: el, ...scrollConfig },
-                    duration: 0.5,
-                    y: 20,
-                    opacity: 0,
-                    ease: "power2.out"
-                });
-            });
-        });
-    }, 100);
-
-    // Defer complex animations - split into smaller chunks
-    setTimeout(() => {
-        // Contact section first
-        gsap.from('.contact-info', {
-            scrollTrigger: { trigger: '#contact', ...scrollConfig },
-            duration: 0.6,
-            x: -30,
-            opacity: 0,
-            ease: "power2.out"
-        });
-
-        gsap.from('.contact-form', {
-            scrollTrigger: { trigger: '#contact', ...scrollConfig },
-            duration: 0.6,
-            x: 30,
-            opacity: 0,
-            ease: "power2.out"
-        });
-    }, 150);
-
-    // Education vertical scroll in separate batch matching the new Cyberpunk Grid layout
-    setTimeout(() => {
-        ['.education-item'].forEach(selector => {
-            gsap.utils.toArray(selector).forEach((el) => {
-                gsap.from(el, {
-                    scrollTrigger: { trigger: el, ...scrollConfig },
-                    duration: 0.5,
-                    y: 30,
-                    opacity: 0,
-                    ease: "power2.out"
-                });
-            });
-        });
-    }, 200);
-
-
-    // Header scroll animation
+    // 9. Header Scrolled Class Toggle
     gsap.to('header', {
         scrollTrigger: {
             trigger: 'body',
@@ -469,23 +571,18 @@ function initScrollTriggers() {
         }
     });
 
-    // Configure ScrollTrigger
-    ScrollTrigger.config({
-        limitCallbacks: true,
-        syncInterval: 250,
-        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
-        ignoreMobileResize: true
-    });
+    // Refresh ScrollTrigger calculations
+    ScrollTrigger.refresh();
 
-    // Defer refresh
-    setTimeout(() => ScrollTrigger.refresh(), 100);
-
-    // Debounced refresh on resize
+    // Debounced refresh on window resize
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 300);
+        resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 200);
     }, { passive: true });
+
+    // Refresh once all assets/images are loaded
+    window.addEventListener('load', () => ScrollTrigger.refresh());
 
     // Initialize Education Timeline scroll progress
     initEducationTimelineScroll();

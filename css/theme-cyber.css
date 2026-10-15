@@ -236,8 +236,52 @@ section {
     opacity: 0.65;
 }
 
+/* Active Cyber Scanning Laser */
 .scanning-line {
-    display: none !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 243, 255, 0.45) 30%, rgba(168, 85, 247, 0.5) 70%, transparent 100%) !important;
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.4) !important;
+    opacity: 0.22 !important;
+    pointer-events: none !important;
+    animation: scanLineAnim 18s linear infinite !important;
+}
+
+@keyframes scanLineAnim {
+    0% {
+        top: -2%;
+        opacity: 0;
+    }
+    4% {
+        opacity: 0.22;
+    }
+    96% {
+        opacity: 0.22;
+    }
+    100% {
+        top: 102%;
+        opacity: 0;
+    }
+}
+
+/* Global Interactive Mouse Glow */
+.global-mouse-glow {
+    position: fixed;
+    top: -250px;
+    left: -250px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.045) 0%, rgba(99, 102, 241, 0.02) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 999;
+    mix-blend-mode: screen;
+    will-change: transform;
+    opacity: 1;
 }
 
 /* Floating Ambient Glow Orbs */
@@ -310,6 +354,20 @@ header {
     transition: all 0.3s ease !important;
 }
 
+/* Dynamic Reading Scroll Progress Bar */
+header::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -1px !important;
+    left: 0 !important;
+    height: 2px !important;
+    width: var(--scroll-progress, 0%) !important;
+    background: linear-gradient(90deg, #00f3ff 0%, #6366f1 50%, #c084fc 100%) !important;
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.75) !important;
+    pointer-events: none !important;
+    transition: width 0.08s ease-out !important;
+}
+
 .logo {
     background: transparent !important;
     padding: 0 !important;
@@ -377,7 +435,7 @@ nav ul {
     letter-spacing: 0 !important;
     text-transform: none !important;
     clip-path: none !important;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
     text-decoration: none !important;
     cursor: pointer !important;
 }
@@ -388,6 +446,26 @@ nav ul {
     font-weight: 700 !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     box-shadow: 0 10px 25px -5px rgba(0, 243, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.btn-primary::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 60% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent) !important;
+    transform: skewX(-25deg) !important;
+    pointer-events: none !important;
+    transition: none !important;
+}
+
+.btn-primary:hover::before {
+    left: 150% !important;
+    transition: left 0.75s ease !important;
 }
 
 .btn-primary:after {
@@ -405,6 +483,7 @@ nav ul {
     color: #f8fafc !important;
     border: 1px solid rgba(255, 255, 255, 0.14) !important;
     backdrop-filter: blur(10px) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .btn-secondary:hover {
@@ -412,7 +491,15 @@ nav ul {
     border-color: rgba(0, 243, 255, 0.4) !important;
     color: #ffffff !important;
     transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 243, 255, 0.2) !important;
+}
+
+.btn i {
+    transition: transform 0.25s ease !important;
+}
+
+.btn:hover i {
+    transform: translateX(3px) scale(1.1) !important;
 }
 
 /* ==========================================================================
@@ -433,6 +520,70 @@ nav ul {
 .home-content {
     flex: 1.2;
     z-index: 2;
+}
+
+/* Hero Status Availability Capsule */
+.hero-status-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+    padding: 0.35rem 0.95rem !important;
+    border-radius: 9999px !important;
+    background: rgba(16, 185, 129, 0.08) !important;
+    border: 1px solid rgba(16, 185, 129, 0.32) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 16px rgba(16, 185, 129, 0.15) !important;
+    margin-bottom: 1.15rem !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    width: fit-content !important;
+    position: relative !important;
+    transition: transform 0.25s ease, border-color 0.25s ease !important;
+}
+
+.hero-status-pill:hover {
+    transform: translateY(-2px) !important;
+    border-color: rgba(52, 211, 153, 0.55) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.25) !important;
+}
+
+.status-radar-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #10b981 !important;
+    box-shadow: 0 0 10px #10b981 !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.status-radar-ping {
+    position: absolute !important;
+    left: 0.95rem !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: rgba(16, 185, 129, 0.6) !important;
+    animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+}
+
+@keyframes radarPing {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    75%, 100% {
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+.hero-status-pill .status-text {
+    font-family: var(--font-mono) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    color: #34d399 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
 }
 
 .home-content h2 {
@@ -631,12 +782,28 @@ nav ul {
     height: clamp(260px, 28vw, 360px) !important;
     position: relative !important;
     overflow: hidden !important;
+    animation: profileAuraFloat 7s ease-in-out infinite !important;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+@keyframes profileAuraFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 25px 60px -15px rgba(0, 243, 255, 0.4), 0 0 35px rgba(99, 102, 241, 0.3);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0.4deg);
+        box-shadow: 0 35px 75px -12px rgba(0, 243, 255, 0.55), 0 0 50px rgba(192, 132, 252, 0.4);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 25px 60px -15px rgba(0, 243, 255, 0.4), 0 0 35px rgba(99, 102, 241, 0.3);
+    }
+}
+
 .profile-img:hover {
-    transform: translateY(-6px) scale(1.02) !important;
-    box-shadow: 0 35px 80px -15px rgba(0, 243, 255, 0.6), 0 0 50px rgba(99, 102, 241, 0.45) !important;
+    transform: translateY(-12px) scale(1.03) !important;
+    box-shadow: 0 40px 90px -15px rgba(0, 243, 255, 0.65), 0 0 55px rgba(99, 102, 241, 0.5) !important;
 }
 
 .profile-img:before,
@@ -1698,8 +1865,53 @@ nav ul {
 
 .scroll-dot.active {
     background: var(--cyan) !important;
-    box-shadow: 0 0 12px var(--cyan) !important;
+    box-shadow: 0 0 14px var(--cyan), 0 0 28px rgba(0, 243, 255, 0.5) !important;
     transform: scale(1.4) !important;
+    animation: dotPulse 2s ease-in-out infinite alternate !important;
+}
+
+@keyframes dotPulse {
+    0% {
+        box-shadow: 0 0 10px var(--cyan);
+    }
+    100% {
+        box-shadow: 0 0 20px var(--cyan), 0 0 35px rgba(0, 243, 255, 0.75);
+    }
+}
+
+/* ==========================================================================
+   DYNAMIC INTERACTIVE CARD HOLOGRAPHIC SPOTLIGHT
+   ========================================================================== */
+.skill-card,
+.project-card,
+.about-pillar-card,
+.milestone-card,
+.cert-card {
+    position: relative !important;
+}
+
+.skill-card::after,
+.project-card::after,
+.about-pillar-card::after,
+.milestone-card::after,
+.cert-card::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: inherit !important;
+    background: radial-gradient(360px circle at var(--card-x, 50%) var(--card-y, 50%), rgba(0, 243, 255, 0.14), transparent 60%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.35s ease !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+}
+
+.skill-card:hover::after,
+.project-card:hover::after,
+.about-pillar-card:hover::after,
+.milestone-card:hover::after,
+.cert-card:hover::after {
+    opacity: 1 !important;
 }
 
 /* ==========================================================================
